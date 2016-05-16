@@ -1,32 +1,13 @@
 <?php
 
 return [
-    /**
-     * Model title
-     *
-     * @type string
-     */
+
     'title' => 'Статьи',
 
-    /**
-     * The singular name of your model
-     *
-     * @type string
-     */
     'single' => 'статью',
 
-    /**
-     * The class name of the Eloquent model that this config represents
-     *
-     * @type string
-     */
     'model' => 'App\Article',
 
-    /**
-     * The columns array
-     *
-     * @type array
-     */
     'columns' => [
         'id' => [
             'title' => 'ID',
@@ -36,18 +17,13 @@ return [
         ],
         'alias' => [
             'title' => 'Псевдоним',
-
         ],
         'public' => [
             'title' => 'Опубиковать',
+            'select' => "IF((:table).public, 'да', 'нет')",
         ],
     ],
 
-    /**
-     * The edit fields array
-     *
-     * @type array
-     */
     'edit_fields' => [
         'title' => [
             'title' => 'Название',
@@ -89,21 +65,11 @@ return [
         ],
     ],
 
-    /**
-     * The validation rules for the form, based on the Laravel validation class
-     *
-     * @type array
-     */
     'rules' => [
         'title' => 'required',
         'alias' => 'unique:pages,alias|regex:/^[-a-z0-9]+$/',
     ],
 
-    /**
-     * The validation messages for the form, based on the Laravel validation class
-     *
-     * @type array
-     */
     'messages' => [
         'title.required' => 'Поле "Название" обязательно для заполнения',
         'alias.required' => 'Поле "Псевдоним" обязательно для заполнения',
@@ -111,28 +77,13 @@ return [
         'alias.unique' => 'Указаный псевдоним уже занят'
     ],
 
-    /**
-     * The sort options for a model
-     *
-     * @type array
-     */
     'sort' => array(
         'field' => 'created_at',
         'direction' => 'desc',
     ),
 
-    /**
-     * The width of the model's edit form
-     *
-     * @type int
-     */
     'form_width' => 800,
 
-    /**
-     * The filter fields
-     *
-     * @type array
-     */
     'filters' => [
         'title' => array(
             'title' => 'Заголовок',

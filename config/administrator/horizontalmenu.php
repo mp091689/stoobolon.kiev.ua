@@ -1,32 +1,13 @@
 <?php
 
 return [
-    /**
-     * Model title
-     *
-     * @type string
-     */
+
     'title' => 'Меню',
 
-    /**
-     * The singular name of your model
-     *
-     * @type string
-     */
     'single' => 'пункт меню',
 
-    /**
-     * The class name of the Eloquent model that this config represents
-     *
-     * @type string
-     */
     'model' => 'App\Menu',
 
-    /**
-     * The columns array
-     *
-     * @type array
-     */
     'columns' => [
         'id' =>[
             'title' => 'ID',
@@ -47,11 +28,6 @@ return [
         ],
     ],
 
-    /**
-     * The edit fields array
-     *
-     * @type array
-     */
     'edit_fields' => [
         'id' => [
             'title' => 'ID',
@@ -80,22 +56,13 @@ return [
         ],
     ],
 
-    /**
-     * The validation rules for the form, based on the Laravel validation class
-     *
-     * @type array
-     */
     'rules' => [
         'title' => 'required|unique:menus,title',
-        'sort' => 'required|numeric|unique:menus,sort',
+        'sort' => 'required|integer|unique:menus,sort',
         'page_id' => 'required',
     ],
 
-    /**
-     * The validation messages for the form, based on the Laravel validation class
-     *
-     * @type array
-     */
+
     'messages' => [
         'title.required' => 'Поле "Название" обязательно для заполнения',
         'title.unique' => 'Выбранное название уже занято',
@@ -105,20 +72,10 @@ return [
         'page_id.required' => 'Поле "Страница" обязательно для заполнения',
     ],
 
-    /**
-     * The sort options for a model
-     *
-     * @type array
-     */
     'sort' => array(
         'field' => 'sort',
         'direction' => 'asc',
     ),
 
-    /**
-     * The width of the model's edit form
-     *
-     * @type int
-     */
     //'form_width' => 600,
 ];

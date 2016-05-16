@@ -69,6 +69,7 @@ return array(
 		'pages',
 		'articles',
 		'horizontalmenu',
+		'shares',
 	],
 
 	/**

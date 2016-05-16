@@ -1,32 +1,13 @@
 <?php
 
 return [
-    /**
-     * Model title
-     *
-     * @type string
-     */
+
     'title' => 'Страницы',
 
-    /**
-     * The singular name of your model
-     *
-     * @type string
-     */
     'single' => 'страницу',
 
-    /**
-     * The class name of the Eloquent model that this config represents
-     *
-     * @type string
-     */
     'model' => 'App\Page',
 
-    /**
-     * The columns array
-     *
-     * @type array
-     */
     'columns' => [
         'id' => [
             'title' => 'ID',
@@ -39,14 +20,10 @@ return [
         ],
         'public' => [
             'title' => 'Опубликовать',
+            'select' => "IF((:table).public, 'да', 'нет')",
         ],
     ],
 
-    /**
-     * The edit fields array
-     *
-     * @type array
-     */
     'edit_fields' => [
         'title' => [
             'title' => 'Название',
@@ -113,21 +90,11 @@ return [
         ],
     ],
 
-    /**
-     * The validation rules for the form, based on the Laravel validation class
-     *
-     * @type array
-     */
     'rules' => [
         'title' => 'required',
         'alias' => 'unique:pages,alias|regex:/^[-a-z0-9]+$/',
     ],
 
-    /**
-     * The validation messages for the form, based on the Laravel validation class
-     *
-     * @type array
-     */
     'messages' => [
         'title.required' => 'Поле "Название" обязательно для заполнения',
         'alias.required' => 'Поле "Псевдоним" обязательно для заполнения',
@@ -135,29 +102,11 @@ return [
         'alias.unique' => 'Указаный псевдоним уже занят'
     ],
 
-    /**
-     * The sort options for a model
-     *
-     * @type array
-     */
     'sort' => array(
         'field' => 'id',
         'direction' => 'asc',
     ),
 
-    /**
-     * The width of the model's edit form
-     *
-     * @type int
-     */
-    'form_width' => 800,
-
-    /**
-     * The action_permissions option lets you define permissions on the four primary actions: 'create', 'update', 'delete', and 'view'.
-     * It also provides a secondary place to define permissions for your custom actions.
-     *
-     * @type array
-     */
     'action_permissions'=> [
         'delete' => function($model)
         {
@@ -179,11 +128,6 @@ return [
         }
     ],
 
-    /**
-     * The filter fields
-     *
-     * @type array
-     */
     'filters' => [
         'title' => array(
             'title' => 'Заголовок',
@@ -197,4 +141,6 @@ return [
             'description' => '"true" - опубликованные страницы, "false" - не опубликованные страницы.',
         ],
     ],
+
+    'form_width' => 800,
 ];
