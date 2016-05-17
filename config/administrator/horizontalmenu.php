@@ -25,6 +25,7 @@ return [
         ],
         'public' => [
             'title' => 'Опубликовать',
+            'select' => "IF((:table).public, 'да', 'нет')",
         ],
     ],
 
