@@ -1,11 +1,13 @@
 <div class="footer container">
     <ul>
-        <li class="ative-li-footer"><a href="#">Главная</a>|</li>
-        <li><a href="#">Запчасти</a>|</li>
-        <li><a href="#">Оборудование</a>|</li>
-        <li><a href="#">Услуги СТО</a>|</li>
-        <li><a href="#">Как нас найти</a></li>
-
+        @foreach($menus as $menu)
+            @if($menu->page->alias=='public')
+                <?php $h = '/'; ?>
+            @else
+                <?php $h = $menu->page->alias ?>
+            @endif
+            <li {{ Request::is($h) ? 'class=active-li-footer' : '' }}><a href="{{ $h }}">{{ $menu->title }}</a></li>
+        @endforeach
     </ul>
     <p class="copyright">© Copyright Information</p>
 </div>

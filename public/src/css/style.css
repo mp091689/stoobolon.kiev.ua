@@ -122,10 +122,10 @@ nav {
     background: #aaa;
     color: #333;
 }
-.ative-li {
+.active-li {
     position: relative;
 }
-.ative-li a:after {
+.active-li a:after {
     content: "";
     position: absolute;
     bottom: 7px;
@@ -134,7 +134,7 @@ nav {
     height: 2px;
     background: #fff;
 }
-.ative-li a:hover {
+.active-li a:hover {
     background: gray;
     color: #fff;
 }
@@ -421,7 +421,7 @@ nav {
 .footer ul li a:hover {
     text-decoration:underline;
 }
-.footer .ative-li-footer {
+.footer .active-li-footer {
     text-decoration:underline;
 }
 .footer .copyright {

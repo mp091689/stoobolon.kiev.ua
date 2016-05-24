@@ -10,7 +10,16 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('page.single');
-});
+//
+//Route::get('/', function () {
+//    return view('page.single');
+//});
+//
+Route::get('/{page_alias?}',[
+    'uses' => 'PageController@getPageIndex',
+    'as' => 'page.single'
+]);
+Route::get('/article/{article_alias?}',[
+    'uses' => 'ArticleController@getArticleIndex',
+    'as' => 'article.single'
+]);
