@@ -27,14 +27,15 @@
         @endforeach
     </div>
     <div class="review-form">
-        <form action="" method="post" id="review-form">
+        <form action="{{ route('review.send') }}" method="post" id="review-form">
             <div class="input-group">
-                <lable for="author">Представьтесь:</lable><br>
-                <input type="text" name="author" id="author" placeholder="Иванов Иван">
+                <input type="text" name="author" placeholder="Имя" value="{{ Request::old('author') }}">
             </div>
             <div class="input-group">
-                <lable for="review">Напишите отзыв:</lable><br>
-                <textarea id="review" name="review" rows="6" cols="50" placeholder="Оставьте ваш отзыв."></textarea>
+                <input type="text" name="email" placeholder="Email" value="{{ Request::old('email') }}">
+            </div>
+            <div class="input-group">
+                <textarea name="body" rows="6" cols="50" placeholder="Отзыв">{{ Request::old('body') }}</textarea>
             </div>
             <button class="btn" type="submit" id="review-btn">Оставить отзыв</button>
             <input type="hidden" name="_token" value="{{ Session::token() }}"/>

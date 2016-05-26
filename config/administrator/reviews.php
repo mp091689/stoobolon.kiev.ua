@@ -15,6 +15,9 @@ return [
         'author' => [
             'title' => 'Автор',
         ],
+        'email' => [
+            'title' => 'Почта',
+        ],
         'body' => [
             'title' => 'Отзыв',
         ],
@@ -31,6 +34,11 @@ return [
     'edit_fields' => [
         'author' => [
             'title' => 'Автор',
+            'type'  => 'text',
+            'editable' => false,
+        ],
+        'email' => [
+            'title' => 'Почта',
             'type'  => 'text',
             'editable' => false,
         ],
@@ -53,6 +61,9 @@ return [
 
     'filters' => [
         'author' => array(
+            'title' => 'Автор',
+        ),
+        'email' => array(
             'title' => 'Автор',
         ),
         'body' => array(

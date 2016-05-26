@@ -25,5 +25,9 @@ Route::get('/article/{article_alias?}',[
 ]);
 Route::get('/reviews',[
     'uses' => 'ArticleController@getArticleIndex',
-    'as' => 'article.single'
+    'as' => 'reviews'
+]);
+Route::post('/reviews/sendreview', [
+    'uses' => 'ReviewController@postSendReview',
+    'as' => 'review.send'
 ]);
