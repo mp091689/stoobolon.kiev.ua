@@ -23,3 +23,7 @@ Route::get('/article/{article_alias?}',[
     'uses' => 'ArticleController@getArticleIndex',
     'as' => 'article.single'
 ]);
+Route::get('/reviews',[
+    'uses' => 'ArticleController@getArticleIndex',
+    'as' => 'article.single'
+]);

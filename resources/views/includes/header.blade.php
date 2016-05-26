@@ -20,7 +20,7 @@
         <ul class="main-menu default">
             @foreach($menus as $menu)
                 @if($menu->page->alias=='public')
-                    <?php $h = '/'; ?>
+                    <?php $h = ''; ?>
                 @else
                     <?php $h = $menu->page->alias ?>
                 @endif
