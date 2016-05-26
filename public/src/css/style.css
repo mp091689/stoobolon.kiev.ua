@@ -430,4 +430,31 @@ nav {
     text-align: center;
 }
 
-/* FOOTER END*/
+/* FOOTER END */
+
+/* INFO-BOX */
+
+.right .info-box {
+    border: solid 1px;
+    border-radius: 5px;
+    width: 400px;
+    margin: 8px auto;
+    padding: 8px 8px 8px 28px;
+}
+.right .info-box.fail {
+    border-color: #FF8080;
+    background-color: #FFDADA;
+}
+.right .info-box.success {
+    border-color: #88FF80;
+    background-color: #E1FFDA;
+}
+.right .info-box ul {
+    width: 400px;
+    list-style: inherit;
+}
+.right .info-box ul li {
+    padding: 4px;
+}
+
+/* INFO-BOX END */

@@ -26,6 +26,7 @@
             <p class="author">{{ $review->author }} | {{ $review->created_at->format('d.m.Y') }}</p>
         @endforeach
     </div>
+    @include('includes.info-box')
     <div class="review-form">
         <form action="{{ route('review.send') }}" method="post" id="review-form">
             <div class="input-group">
