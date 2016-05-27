@@ -79,5 +79,11 @@ return [
             'type' => 'datetime',
         ],
     ],
+    'action_permissions'=> array(
+        'create' => function($model)
+        {
+            return false;
+        }
+    ),
 
 ];

@@ -27,7 +27,15 @@ Route::get('/reviews',[
     'uses' => 'ArticleController@getArticleIndex',
     'as' => 'reviews'
 ]);
+Route::get('/contacts',[
+    'uses' => 'PageController@getPageIndex',
+    'as' => 'contacts'
+]);
 Route::post('/reviews/sendreview', [
     'uses' => 'ReviewController@postSendReview',
     'as' => 'review.send'
+]);
+Route::post('/contacts/sendmessage', [
+    'uses' => 'MessagesController@postSendMessage',
+    'as' => 'contacts.send'
 ]);

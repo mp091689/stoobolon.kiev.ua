@@ -68,8 +68,9 @@ return array(
 	'menu' => [
 		'pages',
 		'articles',
-		'reviews',
 		'horizontalmenu',
+		'reviews',
+		'messages',
 		'shares',
 	],
 

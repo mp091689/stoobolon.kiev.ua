@@ -41,7 +41,7 @@ class PagesTableSeeder extends Seeder
         DB::table('pages')->insert([
             'title' => 'Контакты',
             'alias' => 'contacts',
-            'body' => '<h1>Контакты</h1><p>Украина, Киев</p><p>ул. Полярная, 19,</p><p>гаражный кооператив "Припять",</p><p>бокс 335</p><p>obolon.sto@gmail.com</p><p>Тел.: +38 (050) 500-91-11</p><p>+38 (097) 839-95-54</p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1268.4198871492972!2d30.470345871892327!3d50.518547998553764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDMxJzA2LjgiTiAzMMKwMjgnMTUuMyJF!5e0!3m2!1sru!2sua!4v1464251914485" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>',
+            'body' => '<h1>Контакты</h1><p>Украина, Киев</p><p>ул. Полярная, 19,</p><p>гаражный кооператив "Припять",</p><p>бокс 335</p><p>obolon.sto@gmail.com</p><p>Тел.: +38 (050) 500-91-11</p><p>+38 (097) 839-95-54</p>',
             'public' => '1',
             'meta_title' => 'Контакты',
             'meta_description' => 'Адрес, контакты СТО на Оболони в городе Киев.',

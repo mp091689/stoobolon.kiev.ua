@@ -23,8 +23,10 @@ class PageController extends Controller
             }
             return view('page.articles', ['page'=>$page, 'menus' => $menus, 'articles' => $articles]);
         } elseif ($page_alias == 'reviews') {
-            $reviews = Review::where('public','1')->orderBy('created_at')->get();
+            $reviews = Review::where('public','1')->orderBy('created_at', 'desc')->get();
             return view('page.reviews', ['page'=>$page, 'menus' => $menus, 'reviews' => $reviews]);
+        }elseif ($page_alias == 'contacts') {
+            return view('page.contacts', ['page'=>$page, 'menus' => $menus]);
         } else {
             return view('page.single', ['page'=>$page, 'menus' => $menus]);
         }
