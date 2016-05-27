@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Message;
+use App\Events\SendMessage;
+use Illuminate\Support\Facades\Event;
 
 class MessagesController extends Controller
 {
@@ -20,10 +22,10 @@ class MessagesController extends Controller
         $message = new Message();
         $message->author = $request['author'];
         $message->email = $request['email'];
-        $message->phone = $request['email'];
+        $message->phone = $request['phone'];
         $message->body = $request['body'];
         $message->save();
-        //Event::fire(new MessageSent($message));
+        Event::fire(new SendMessage($message));
         return redirect()->route('contacts')->with(['success' => 'Ваше сообщение успешно отправлено. Наши специалисты свяжутся с Вами в кратчайшие сроки.']);
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Review;
+use Illuminate\Support\Facades\Event;
+use App\Events\SendReview;
 
 class ReviewController extends Controller
 {
@@ -22,7 +24,7 @@ class ReviewController extends Controller
         $review->body = $request['body'];
         $review->public = true;
         $review->save();
-        //Event::fire(new MessageSent($message));
+        Event::fire(new SendReview($review));
         return redirect()->route('reviews')->with(['success' => 'Ваш отзыв отправлен на проверку, во избежание распространения спама и материала нецензурного содержания.']);
     }
 }

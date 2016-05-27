@@ -38,7 +38,7 @@
             <div class="input-group">
                 <textarea name="body" rows="6" cols="50" placeholder="Напишите нам и мы с Вами свяжемся">{{ Request::old('body') }}</textarea>
             </div>
-            <button class="btn" type="submit" id="contacts-btn">Оставить отзыв</button>
+            <button class="btn" type="submit" id="contacts-btn">Оставить запрос</button>
             <input type="hidden" name="_token" value="{{ Session::token() }}"/>
         </form>
     </div>
