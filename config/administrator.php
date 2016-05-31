@@ -72,6 +72,10 @@ return array(
 		'reviews',
 		'messages',
 		'shares',
+		'Настройки' => [
+			'settings.common',
+			'settings.smtp',
+		],
 	],
 
 	/**
@@ -106,7 +110,7 @@ return array(
 	 *
 	 * @type string
 	 */
-	'home_page' => '',
+	'home_page' => 'pages',
 
 	/**
 	 * The route to which the user will be taken when they click the "back to site" button

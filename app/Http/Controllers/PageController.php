@@ -26,7 +26,13 @@ class PageController extends Controller
             $reviews = Review::where('public','1')->orderBy('created_at', 'desc')->get();
             return view('page.reviews', ['page'=>$page, 'menus' => $menus, 'reviews' => $reviews]);
         }elseif ($page_alias == 'contacts') {
-            return view('page.contacts', ['page'=>$page, 'menus' => $menus]);
+            $json_string = file_get_contents(storage_path().'/administrator_settings/common.json');
+            $json_common = json_decode($json_string, true);
+            return view('page.contacts', [
+                'page'=>$page,
+                'menus' => $menus,
+                'json_common' => $json_common,
+            ]);
         } else {
             return view('page.single', ['page'=>$page, 'menus' => $menus]);
         }

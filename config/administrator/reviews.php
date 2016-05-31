@@ -55,7 +55,7 @@ return [
     ],
 
     'sort' => array(
-        'field' => 'public',
+        'field' => 'created_at',
         'direction' => 'desc',
     ),
 
