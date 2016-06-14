@@ -10,14 +10,14 @@
             телефон: +38 (097) 839-95-54
         </section>
         <section class="footer-social">
-            <p>Давайте дружить!</p>
+            <p>Мы в социальных сетях</p>
             <a href="#" class="social-btn social-btn-vk">Вконтакте</a>
             <a href="#" class="social-btn social-btn-fb">Фейсбук</a>
             <a href="#" class="social-btn social-btn-inst">Инстаграм</a>
         </section>
-        <!-- <section class="footer-copyright">
-            <p>Дизайн сайта:</p>
-            <a href="#" class="btn">123456</a>
-        </section> -->
+        {{--<section class="footer-copyright">--}}
+            {{--<p>Дизайн сайта:</p>--}}
+            {{--<a href="#" class="btn">123456</a>--}}
+        {{--</section>--}}
     </div>
 </footer>

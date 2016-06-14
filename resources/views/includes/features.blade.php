@@ -1,7 +1,7 @@
 <figure class="logo">
     <img src="src/img/logo.png" alt="STO-Obolon">
-    СТО "На Оболони"<br/>
-    Качественный сервис для вашей машины
+    <span style="color: #fff; font-size: 48px; font-style: italic">СТО "НА ОБОЛОНИ"</span><br/>
+    <span style="color: #fccf1b; font-size: 22px; font-style: italic">Качественный сервис для вашей машины</span>
 </figure>
 
 <section class="features-row clearfix">

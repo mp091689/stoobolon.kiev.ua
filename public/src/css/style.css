@@ -130,15 +130,14 @@ body {
 }
 
 .logo {
-  width: 617px;
-  /*height: 204px;*/
+  width: 560px;
+  height: 100px;
   margin: 0 auto;
   margin-bottom: 25px;
 }
 
 .logo img {
-  /*width: 368px;*/
-  /*height: 204px;*/
+    float: left;
 }
 
 .features-row {
@@ -186,17 +185,15 @@ body {
 }
 
 .index-content {
-  margin-bottom: 35px;
-  padding: 50px 80px;
-
-  color: #000;
-  background:
-    url("img/index-content-shadow.png") no-repeat center,
-    #f8f5f2 url("img/pattern-white.jpg");
+    margin-bottom: 35px;
+    padding: 50px 80px;
+    color: #000;
+    background: #f8f5f2;
+    font-weight: normal;
 }
 
 .content-column-left {
-  width: 350px; /* спасибо дизайнеру */
+  width: 350px;
 }
 
 .content-column-right {
@@ -340,22 +337,23 @@ body {
 }
 
 .main-footer {
-  margin-top: 60px;
-  padding-top: 20px;
-  padding-bottom: 14px;
-
-  background: #252525 url("img/pattern-black.jpg");
+    margin-top: 60px;
+    padding-top: 20px;
+    padding-bottom: 14px;
+    /*background: #252525 url("img/pattern-black.jpg");*/
+    background: #252525;
+    line-height: 18px;
 }
 
 .footer-contacts {
-  float: left;
+    float: left;
 
-  width: 320px;
-  margin-right: 80px;
-}
+    width: 320px;
+    margin-right: 80px;
+    }
 
 .footer-contacts a {
-  color: #fff;
+    color: #fff;
 }
 
 .footer-social {
@@ -481,12 +479,13 @@ body {
     margin: 0;
     padding: 0;
     text-align: right;
-    color: #a9a9a9;
+    font-weight: bold;
+    color: #5a5a5a;
 }
 .index-content .review{
-    border-bottom: solid 1px;
-    border-left: solid 1px;
-    border-color: #dadada;
+    border-bottom: solid 2px;
+    border-left: solid 2px;
+    border-color: #000000;
     margin-bottom: 24px;
     padding: 12px;
 }
