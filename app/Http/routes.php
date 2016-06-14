@@ -10,32 +10,32 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-//
-//Route::get('/', function () {
-//    return view('page.single');
-//});
-//
-Route::get('/{page_alias?}',[
-    'uses' => 'PageController@getPageIndex',
-    'as' => 'pages.single'
-]);
-Route::get('/article/{article_alias?}',[
-    'uses' => 'ArticleController@getArticleIndex',
-    'as' => 'article.single'
-]);
-Route::get('/reviews',[
-    'uses' => 'ArticleController@getArticleIndex',
-    'as' => 'reviews'
-]);
-Route::get('/contacts',[
-    'uses' => 'PageController@getPageIndex',
-    'as' => 'contacts'
-]);
-Route::post('/reviews/sendreview', [
-    'uses' => 'ReviewController@postSendReview',
-    'as' => 'review.send'
-]);
-Route::post('/contacts/sendmessage', [
-    'uses' => 'MessagesController@postSendMessage',
-    'as' => 'contacts.send'
-]);
+
+Route::auth();
+
+Route::group(['middleware'=>'web'], function() {
+    Route::get('/{page_alias?}', [
+        'uses' => 'PageController@getPageIndex',
+        'as' => 'pages.single'
+    ]);
+    Route::get('/article/{article_alias?}', [
+        'uses' => 'ArticleController@getArticleIndex',
+        'as' => 'article.single'
+    ]);
+    Route::get('/reviews', [
+        'uses' => 'ArticleController@getArticleIndex',
+        'as' => 'reviews'
+    ]);
+    Route::get('/contacts', [
+        'uses' => 'PageController@getPageIndex',
+        'as' => 'contacts'
+    ]);
+    Route::post('/reviews/sendreview', [
+        'uses' => 'ReviewController@postSendReview',
+        'as' => 'review.send'
+    ]);
+    Route::post('/contacts/sendmessage', [
+        'uses' => 'MessagesController@postSendMessage',
+        'as' => 'contacts.send'
+    ]);
+});
