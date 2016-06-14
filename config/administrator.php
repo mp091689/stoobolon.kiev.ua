@@ -74,7 +74,7 @@ return array(
 		'shares',
 		'Настройки' => [
 			'settings.common',
-			'settings.smtp',
+			//'settings.smtp',
 		],
 	],
 

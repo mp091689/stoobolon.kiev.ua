@@ -14,10 +14,10 @@
 
 
 @section('content')
-    @include('includes.left')
-    <!-- RIGHT COLUMN -->
-    <div class="right clearfix">
-        {!! $page->body !!}
+    <div class="container">
+        @include('includes.features')
+        <div class="index-content clearfix">
+            {!! $page->body !!}
+        </div>
     </div>
-    <!-- /RIGHT COLUMN  -->
 @endsection

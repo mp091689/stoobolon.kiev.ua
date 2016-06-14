@@ -17,7 +17,7 @@
 //
 Route::get('/{page_alias?}',[
     'uses' => 'PageController@getPageIndex',
-    'as' => 'page.single'
+    'as' => 'pages.single'
 ]);
 Route::get('/article/{article_alias?}',[
     'uses' => 'ArticleController@getArticleIndex',

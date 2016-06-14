@@ -14,11 +14,8 @@
 
 
 @section('content')
-@include('includes.left')
-        <!-- RIGHT COLUMN -->
-<div class="right clearfix">
-    <h1>{{ $article->title }}</h1>
-    {!! $article->body !!}
-</div>
-<!-- /RIGHT COLUMN  -->
+    <div class="index-content clearfix">
+        <h1>{{ $article->title }}</h1>
+        {!! $article->body !!}
+    </div>
 @endsection

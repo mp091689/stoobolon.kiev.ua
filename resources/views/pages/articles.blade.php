@@ -14,21 +14,16 @@
 
 
 @section('content')
-@include('includes.left')
-        <!-- RIGHT COLUMN -->
-<div class="right clearfix">
-    <div class="description">
+<div class="container">
         {!! $page->body !!}
-    </div>
-    <div class="articles-list">
-        @foreach($articles as $article)
-            <h2>{{ $article->title }}</h2>
+    @foreach($articles as $article)
+        <div class="index-content clearfix">
+            <h2 class="content-column-title">{{ $article->title }}</h2>
             {!! $article->short_body !!}
             <div class="btn-wrap">
                 <a href="/article/{{ $article->alias }}" class="btn">Читать полностью</a>
             </div>
-        @endforeach
-    </div>
+        </div>
+    @endforeach
 </div>
-<!-- /RIGHT COLUMN  -->
 @endsection

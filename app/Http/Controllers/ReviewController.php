@@ -22,7 +22,7 @@ class ReviewController extends Controller
         $review->author = $request['author'];
         $review->email = $request['email'];
         $review->body = $request['body'];
-        $review->public = true;
+        $review->public = false;
         $review->save();
         Event::fire(new SendReview($review));
         return redirect()->route('reviews')->with(['success' => 'Ваш отзыв отправлен на проверку, во избежание распространения спама и материала нецензурного содержания.']);

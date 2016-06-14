@@ -1,23 +1,17 @@
 <?php
 
 return [
-    'title' => 'Общие настройки',
+
+    'title' => 'Общие настройки сайта',
     'edit_fields' => [
         'site_name' => [
-            'title' => 'Название сайта',
-            'type' => 'text',
-        ],
-        'contact_phone' => [
-            'title' => 'Телефон администратора',
-            'type' => 'text',
-        ],
-        'contact_mail' => [
-            'title' => 'Почта администратора',
+            'title' => 'Name',
             'type' => 'text',
         ],
         'maps_code' => [
-            'title' => 'Код для вставки google/yandex карт',
+            'title' => 'Map',
             'type' => 'textarea',
         ],
     ],
+
 ];
