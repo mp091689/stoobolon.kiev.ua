@@ -11,7 +11,6 @@
 @endif
 
 @if(count($errors) > 0)
-    <?php dd($errors) ?>
 
     <div class="info-box fail">
         <ul>

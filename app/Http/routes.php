@@ -13,7 +13,7 @@
 
 Route::auth();
 
-Route::group(['middleware'=>'web'], function() {
+//Route::group(['middleware'=>'web'], function() {
     Route::get('/{page_alias?}', [
         'uses' => 'PageController@getPageIndex',
         'as' => 'pages.single'
@@ -38,4 +38,4 @@ Route::group(['middleware'=>'web'], function() {
         'uses' => 'MessagesController@postSendMessage',
         'as' => 'contacts.send'
     ]);
-});
+//});
