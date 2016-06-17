@@ -66,14 +66,18 @@ return array(
 	 *	)
 	 */
 	'menu' => [
+        'horizontalmenu',
 		'pages',
 		'articles',
-		'horizontalmenu',
-		'reviews',
-		'messages',
-		'shares',
+		//'shares',
+		'Обратная связь' => [
+            'reviews',
+            'messages',
+            'callbacks',
+        ],
 		'Настройки' => [
 			'settings.common',
+            'emails-templates'
 			//'settings.smtp',
 		],
 	],

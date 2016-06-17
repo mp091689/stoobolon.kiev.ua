@@ -10,7 +10,8 @@ body {
   color: #fff;
 
   min-width: 960px;
-  background: #111 url("../img/body-bg.jpg") no-repeat center top;
+  background: #111 url("../img/body-bg.jpg") no-repeat center top fixed;
+  background-size: cover; 
 }
 
 .container {
@@ -32,15 +33,10 @@ body {
 }
 
 .main-navigation {
-  float: left;
-  width: 780px;
+  position: relative;
+  width: 100%;
   text-transform: uppercase;
-}
-
-.user-block {
-  float: right;
-
-  max-width: 140px;
+  text-align: center;
 }
 
 .main-navigation ul {
@@ -67,6 +63,11 @@ body {
   color: #fff;
 }
 
+.main-navigation a img {
+  margin: -11px 0 -20px 0;
+  height: 46px;
+}
+
 .main-navigation a:hover {
   background: #242424;
 }
@@ -90,6 +91,16 @@ body {
   height: 5px;
 
   background: white;
+}
+
+.main-navigation .header-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.main-navigation .header-logo:hover {
+	background: transparent;
 }
 
 .login {
@@ -130,10 +141,11 @@ body {
 }
 
 .logo {
-  width: 560px;
+  width: 610px;
   height: 100px;
   margin: 0 auto;
   margin-bottom: 25px;
+  text-align: center;
 }
 
 .logo img {
@@ -229,7 +241,6 @@ body {
   vertical-align: top;
   padding: 10px 33px;
   margin-right: 16px;
-
   font-size: 14px;
   font-family: "PT Sans Narrow", sans-serif;
   font-weight: 700;
@@ -237,7 +248,6 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
-
   color: #fff;
   background: #000;
   border: none;
@@ -247,7 +257,7 @@ body {
 
 .btn:hover,
 .btn:active {
-  background: #663d15;
+    background: #5a5a5a;
 }
 
 .btn:disabled {
@@ -297,6 +307,12 @@ body {
   margin: 0;
   margin-bottom: 25px;
 }
+
+/*.index-content a {
+    text-decoration: underline;
+    color: #545454;
+    font-style: italic;
+}*/
 
 .appointment-form  input {
   float: left;
@@ -470,18 +486,22 @@ body {
   padding: 0;
 }
 .index-content .review p.author-date{
-    margin: 0;
+    margin: 20px 0 0 0;
     padding: 0;
     text-align: right;
     font-weight: bold;
     color: #5a5a5a;
 }
 .index-content .review{
-    border-bottom: solid 2px;
-    border-left: solid 2px;
-    border-color: #000000;
+    border-bottom: solid 1px;
+    /*border-left: solid 1px;*/
+    border-color: #5a5a5a;
     margin-bottom: 24px;
     padding: 12px;
+}
+.index-content .review img{
+    float:left;
+    margin: 0 8px 8px 0;
 }
 .fixed {
     position: fixed;
@@ -502,4 +522,98 @@ body {
     color: #761c17;
     background-color: #f0dad9;
     border-color: #f09b9a;
+}
+
+/* Трубка в углу */
+.modal-icon {
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    position: fixed;
+    background: transparent url("../img/callback-icon.png") no-repeat;
+    background-size: cover;
+    transition: 0.2s;
+}
+
+.modal-icon:hover {
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+}
+
+/* Всплывающая форма */
+.modal-content {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    height: 400px;
+    margin: auto;
+    padding: 50px 80px;
+    color: #000;
+    background: #eee;
+    box-shadow: 0 30px 50px rgba(0,0,0,.7);
+}
+
+.modal-content-close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    font-size: 0;
+    cursor: pointer;
+    background: transparent url("../img/gtk-close.png") no-repeat;
+    background-size: cover;
+}
+
+.modal-content h2 {
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.modal-content p {
+    margin: 0;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.modal-content .login-form {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.modal-content .login-form input[type="text"],
+.modal-content .login-form input[type="password"],
+.modal-content textarea {
+    width: 236px;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    padding-right: 40px;
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    /*text-transform: uppercase;*/
+    color: #000;
+    border: 2px solid #000;
+    outline: none;
+    background: #f9f6f3;
+}
+
+.modal-content textarea {
+    max-width: 236px;
+    max-height: 90px;
+}
+
+.modal-content .login-form .btn {
+    width: 100%;
+    margin-top: 15px;
 }

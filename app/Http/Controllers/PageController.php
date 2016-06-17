@@ -19,7 +19,7 @@ class PageController extends Controller
         if ($page_alias == 'public') {
             return view('pages.index', ['page' => $page, 'menus' => $menus,]);
         } elseif ($page_alias == 'articles') {
-            $articles = Article::where('public','1')->orderBy('created_at')->get();
+            $articles = Article::where('public','1')->orderBy('created_at', 'desc')->get();
             foreach ($articles as $article){
                 $article->short_body = Str::words($article->body, 50);
             }

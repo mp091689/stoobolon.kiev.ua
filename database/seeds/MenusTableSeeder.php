@@ -15,7 +15,7 @@ class MenusTableSeeder extends Seeder
             'title' => 'Главная',
             'sort' => '10',
             'page_id' => '1',
-            'public' => '1',
+            'public' => '0',
         ]);
         DB::table('menus')->insert([
             'title' => 'Статьи',

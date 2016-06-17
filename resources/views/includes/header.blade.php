@@ -3,21 +3,14 @@
     <div class="container clearfix">
         <!--  MAIN-MENU  -->
         <nav class="main-navigation">
+			<a class="header-logo" href="/"><img src="{{ URL::asset('src/img/logo.png') }}" /></a>
             <ul class="main-menu default">
                 @foreach($menus as $menu)
-                    @if($menu->page->alias=='public')
-                        <?php $h = ''; ?>
-                    @else
-                        <?php $h = $menu->page->alias ?>
-                    @endif
-                    <li {{ Request::is($h) ? 'class=active' : '' }}><a href="/{{ $h }}">{{ $menu->title }}</a></li>
+                    <li {{ Request::is($menu->page->alias) ? 'class=active' : '' }}><a href="/{{ $menu->page->alias }}">{{ $menu->title }}</a></li>
                 @endforeach
             </ul>
         </nav>
         <!--  /MAIN-MENU  -->
-        {{--<div class="user-block">--}}
-            {{--<a href="#" class="login">Вход</a>--}}
-        {{--</div>--}}
     </div>
 </header>
 <!--  /HEADER  -->

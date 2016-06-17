@@ -42,4 +42,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.filebrowserUploadUrl = '/packages/frozennode/administrator/js/kcfinder/upload.php?opener=ckeditor&type=files';
 	config.filebrowserImageUploadUrl = '/packages/frozennode/administrator/js/kcfinder/upload.php?opener=ckeditor&type=images';
 	config.filebrowserFlashUploadUrl = '/packages/frozennode/administrator/js/kcfinder/upload.php?opener=ckeditor&type=flash';
+
+	config.enterMode = CKEDITOR.ENTER_BR;
+	//config.shiftEnterMode = CKEDITOR.ENTER_P;
 };

@@ -18,6 +18,7 @@
     <div class="index-content clearfix">
         @foreach($reviews as $review)
             <div class="review">
+                <img src="{{ URL::asset('src/img/avatar.png') }}" alt="СТО аватар">
                 <p class="review-text">{{ $review->body }}</p>
                 <p class="author-date">{{ $review->author }} | {{ $review->created_at->format('d.m.Y') }}</p>
             </div>
