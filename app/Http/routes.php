@@ -38,4 +38,8 @@ Route::auth();
         'uses' => 'MessagesController@postSendMessage',
         'as' => 'contacts.send'
     ]);
+    Route::post('/callback/sendcallback', [
+        'uses' => 'CallBackController@postSendCallBack',
+        'as' => 'callback.send'
+    ]);
 //});

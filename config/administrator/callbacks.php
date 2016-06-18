@@ -1,18 +1,15 @@
 <?php
 
 return [
-    'title' => 'Cо страницы Контакты',
-    'single' => 'запрос',
-    'model' => 'App\Message',
+    'title' => 'Обратный звонок',
+    'single' => 'звонок',
+    'model' => 'App\CallBack',
     'columns' => [
         'id' => [
             'title' => 'ID',
         ],
         'author' => [
             'title' => 'Автор',
-        ],
-        'email' => [
-            'title' => 'Почта',
         ],
         'phone' => [
             'title' => 'Телефон',
@@ -29,11 +26,6 @@ return [
     'edit_fields' => [
         'author' => [
             'title' => 'Автор',
-            'type'  => 'text',
-            'editable' => false,
-        ],
-        'email' => [
-            'title' => 'Почта',
             'type'  => 'text',
             'editable' => false,
         ],
@@ -57,9 +49,6 @@ return [
     'filters' => [
         'author' => array(
             'title' => 'Автор',
-        ),
-        'email' => array(
-            'title' => 'Почта',
         ),
         'phone' => array(
             'title' => 'Телефон',

@@ -11,7 +11,6 @@
 @endif
 
 @if(count($errors) > 0)
-
     <div class="info-box fail">
         <ul>
             @foreach($errors->all() as $error)

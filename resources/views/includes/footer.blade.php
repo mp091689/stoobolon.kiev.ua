@@ -21,4 +21,3 @@
         </section>
     </div>
 </footer>
-@include('includes.callback')

@@ -71,10 +71,10 @@ return array(
 		'articles',
 		//'shares',
 		'Обратная связь' => [
-            'reviews',
-            'messages',
-            'callbacks',
-        ],
+			'callbacks',
+			'messages',
+			'reviews',
+		],
 		'Настройки' => [
 			'settings.common',
             'emails-templates'
