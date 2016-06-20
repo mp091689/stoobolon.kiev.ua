@@ -21,6 +21,10 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\NewReviewNotification',
             'App\Listeners\NewReviewConfirmation',
         ],
+        'App\Events\SendCallBack' => [
+            'App\Listeners\NewCallBackNotification',
+//            'App\Listeners\NewCallBackConfirmation',
+        ],
     ];
 
     /**

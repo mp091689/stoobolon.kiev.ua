@@ -1,9 +1,15 @@
+html { 
+ position:relative; 
+ min-height:100%;
+}
+
 body {
   font-size: 14px;
   line-height: 24px;
   font-family: "PT Sans Narrow", sans-serif;
 
-  /* обычно так не делают, но здесь такой макет */
+  height: 100%;
+  
   font-weight: 700;
   /*text-transform: uppercase;*/
 
@@ -195,7 +201,9 @@ body {
   background: url(../img/features-icon.png) 100% 100% no-repeat;
   background-size: cover;
 }
-
+.content {
+	margin-bottom: 200px;
+}
 .index-content {
     margin-bottom: 35px;
     padding: 50px 80px;
@@ -347,6 +355,10 @@ body {
 }
 
 .main-footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	
     margin-top: 60px;
     padding-top: 20px;
     padding-bottom: 14px;
@@ -461,6 +473,9 @@ body {
   background: #f9f6f3;
   outline: none;
 }
+.review-form  textarea {
+	max-width: 96%;
+}
 
 .appointment-form  input:focus {
   border: 2px solid #663d15;
@@ -534,6 +549,7 @@ body {
     background: transparent url("../img/callback-icon.png") no-repeat;
     background-size: cover;
     transition: 0.2s;
+    z-index: 99;
 }
 
 .modal-icon:hover {
@@ -609,9 +625,11 @@ body {
 }
 
 .modal-content .login-form input[type="text"],
+.modal-content .login-form input[type="tel"],
 .modal-content .login-form input[type="password"],
 .modal-content textarea {
     width: 276px;
+    max-width: 276px;
     margin: 0;
     margin-bottom: 10px;
     padding: 10px 20px;

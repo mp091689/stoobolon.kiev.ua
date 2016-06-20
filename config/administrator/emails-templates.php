@@ -58,7 +58,7 @@ return [
     ],
 
     'action_permissions'=> [
-        'delete' => false,
+        'delete' => true,
         'create' => false,
     ],
 ];
