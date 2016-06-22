@@ -14,6 +14,10 @@ class CreateCallbacksTable extends Migration
     {
         Schema::create('callbacks', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('author');
+            $table->string('phone');
+            $table->text('body');
+            $table->boolean('attention');
             $table->timestamps();
         });
     }
