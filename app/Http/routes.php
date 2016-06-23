@@ -11,7 +11,18 @@
 |
 */
 
-Route::group(['middleware'=>'web'], function() {
+Route::auth();
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    
+    Route::get('/', [
+        'uses' => 'AdminController@getDashboard',
+        'as' => 'admin.get.dashboard'
+    ]);
+    
+});
+
+Route::group(['middleware' => 'web'], function() {
 
     Route::get('/articles', [
         'uses' => 'ArticleController@getAllArticles',
