@@ -11,6 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware'=>'web'], function() {
+
+    Route::get('/articles', [
+        'uses' => 'ArticleController@getAllArticles',
+        'as' => 'articles'
+    ]);
+    Route::get('/article/{alias}', [
+        'uses' => 'ArticleController@getArticle',
+        'as' => 'article'
+    ]);
+    Route::get('/reviews', [
+        'uses' => 'ReviewController@getAllReviews',
+        'as' => 'reviews'
+    ]);
+
+    Route::get('/{alias?}', [
+        'uses' => 'PageController@getPageIndex',
+        'as' => 'page'
+    ]);
+    
 });
