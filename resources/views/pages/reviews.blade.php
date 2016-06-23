@@ -25,7 +25,7 @@
         @endforeach
         @include('includes.info-box')
         <div class="review-form">
-            <form action="{{-- route('review.send') --}}" method="post" id="review-form">
+            <form action="{{ route('post.send.review') }}" method="post" id="review-form">
                 <input type="text" name="author" placeholder="Имя" value="{{ Request::old('author') }}">
                 <input type="text" name="email" placeholder="Email" value="{{ Request::old('email') }}">
                 <textarea name="body" rows="6" cols="50" placeholder="Отзыв">{{ Request::old('body') }}</textarea>

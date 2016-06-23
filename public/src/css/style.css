@@ -647,6 +647,11 @@ body {
     margin-top: 15px;
 }
 
+.modal-content .login-form .loading-svg {
+    display: none;
+    margin: 15px auto 0 auto;
+}
+
 .modal .info-box {
     display: none;
     text-align: center;

@@ -23,7 +23,7 @@
         <section class="content-column-right">
             @include('includes.info-box')
             <div class="review-form">
-                <form action="{{-- route('contacts.send') --}}" method="post" id="contacts-form">
+                <form action="{{ route('post.send.feedback') }}" method="post" id="contacts-form">
                     <div class="input-group">
                         <input type="text" name="author" placeholder="Имя" value="{{ Request::old('author') }}">
                     </div>

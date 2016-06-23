@@ -25,6 +25,18 @@ Route::group(['middleware'=>'web'], function() {
         'uses' => 'ReviewController@getAllReviews',
         'as' => 'reviews'
     ]);
+    Route::post('/reviews/send', [
+        'uses' => 'ReviewController@postSendReview',
+        'as' => 'post.send.review'
+    ]);
+    Route::post('/contacts/send', [
+        'uses' => 'FeedbackController@postSendFeedback',
+        'as' => 'post.send.feedback'
+    ]);
+    Route::post('/callback/send', [
+        'uses' => 'CallbackController@postSendCallback',
+        'as' => 'post.send.callback'
+    ]);
 
     Route::get('/{alias?}', [
         'uses' => 'PageController@getPageIndex',

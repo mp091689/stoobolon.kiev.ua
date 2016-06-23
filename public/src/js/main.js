@@ -4,6 +4,7 @@ $(function () {
     var $modalPhone = $('.modal').find('input[name="phone"]');
     var $modalBody = $('.modal').find('textarea[name="body"]');
     var $modalBtn = $('.modal').find('button');
+    var $modalLoading = $('.modal').find('.loading-svg');
     var $_token = $('.modal input[name="_token"]').val();
 
     // Show modal form
@@ -31,9 +32,11 @@ $(function () {
     // AJAX send callback form
     $modalBtn.click(function(event) {
         event.preventDefault();
+        $modalBtn.css('display', 'none');
+        $modalLoading.css('display', 'block');
         $.ajax({
             type: "POST",
-            url: "/callback/sendcallback",
+            url: "/callback/send",
             data: {
                 author: $('.modal input[name="author"]').val(),
                 phone: $('.modal input[name="phone"]').val(),
@@ -44,9 +47,8 @@ $(function () {
                 $('.modal .info-box').html(response.success);
                 $('.modal-content').hide();
                 $('.modal .info-box').fadeIn(300);
-                // setTimeout(function(){
-                //     closeClear();
-                // }, 10000);
+                $modalBtn.css('display', 'block');
+                $modalLoading.css('display', 'none');
             },
             error: function(response) {
                 var err_object = $.parseJSON(response.responseText);
@@ -60,6 +62,8 @@ $(function () {
                 setTimeout(function(){
                     setDefaultColors();
                 }, 5000);
+                $modalBtn.css('display', 'block');
+                $modalLoading.css('display', 'none');
             }
         });
     });
@@ -81,19 +85,19 @@ $(function () {
             'color': '#000'
         }, 500);
     }
-    
-    function clearAll() {
-        setDefaultColors();
-        $modalAuthor.val('');
-        $modalPhone.val('');
-        $modalBody.val('');
-    }
 
     function closeClear() {
         $('.modal').hide();
         $('.modal-content').fadeIn(300);
         $('.modal .info-box').hide();
-        clearAll();
+        $modalAuthor.val('');
+        $modalPhone.val('');
+        $modalBody.val('');
+        $modalBtn.css('display', 'block');
+        $modalLoading.css('display', 'none');
+        setDefaultColors();
     }
+
+    $('[name="phone"]').mask('+38 (999) 999-9999');
 
 });

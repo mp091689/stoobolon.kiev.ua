@@ -8,11 +8,12 @@
 
         @include('includes.info-box')
 
-        <form action="{{-- route('callback.send') --}}" method="post" class="login-form" >
+        <form action="{{ route('post.send.callback') }}" method="post" class="login-form" >
             <input class="modal-input" type="text" name="author" placeholder="Имя">
             <input class="modal-input" type="text" name="phone" placeholder="Телефон">
             <textarea class="modal-input" name="body" cols="30" rows="3" placeholder="Ваш комментарий"></textarea>
             <button type="submit" class="btn">Отправить</button>
+            <img src="src/img/loading.svg" class="loading-svg">
             <input type="hidden" name="_token" value="{{ Session::token() }}"/>
         </form>
     </div>

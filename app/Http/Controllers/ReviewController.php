@@ -16,4 +16,20 @@ class ReviewController extends Controller
         $reviews = Review::paginate(10);
         return view('pages.reviews', ['menus' => $menus, 'page' => $page, 'reviews' => $reviews]);
     }
+
+    public function postSendReview(Request $request) {
+        $this->validate($request, [
+            'author' => 'required|max:100',
+            'email' => 'required|email',
+            'body' => 'required',
+        ]);
+
+        $review = new Review();
+        $review->author = $request['author'];
+        $review->email = $request['email'];
+        $review->body = $request['body'];
+        $review->public = false;
+        $review->save();
+        return redirect()->back()->with(['success' => 'Ваш отзыв отправлен на проверку, во избежание распространения спама и материала нецензурного содержания.']);
+    }
 }
