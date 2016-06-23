@@ -32,4 +32,9 @@ class ReviewController extends Controller
         $review->save();
         return redirect()->back()->with(['success' => 'Ваш отзыв отправлен на проверку, во избежание распространения спама и материала нецензурного содержания.']);
     }
+
+    public function getAll() {
+        $allData = Review::paginate(10);
+        return view('admin.reviews', ['reviews' => $allData]);
+    }
 }

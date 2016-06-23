@@ -14,10 +14,34 @@
 Route::auth();
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
-    
+
     Route::get('/', [
         'uses' => 'AdminController@getDashboard',
         'as' => 'admin.get.dashboard'
+    ]);
+    Route::get('/pages', [
+        'uses' => 'PageController@getAll',
+        'as' => 'admin.get.pages'
+    ]);
+    Route::get('/articles', [
+        'uses' => 'ArticleController@getAll',
+        'as' => 'admin.get.articles'
+    ]);
+    Route::get('/menus', [
+        'uses' => 'MenuController@getAll',
+        'as' => 'admin.get.menus'
+    ]);
+    Route::get('/callbacks', [
+        'uses' => 'CallbackController@getAll',
+        'as' => 'admin.get.callbacks'
+    ]);
+    Route::get('/feedbacks', [
+        'uses' => 'FeedbackController@getAll',
+        'as' => 'admin.get.feedbacks'
+    ]);
+    Route::get('/reviews', [
+        'uses' => 'ReviewController@getAll',
+        'as' => 'admin.get.reviews'
     ]);
     
 });
@@ -25,7 +49,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 Route::group(['middleware' => 'web'], function() {
 
     Route::get('/articles', [
-        'uses' => 'ArticleController@getAllArticles',
+        'uses' => 'ArticleController@getPublicArticles',
         'as' => 'articles'
     ]);
     Route::get('/article/{alias}', [

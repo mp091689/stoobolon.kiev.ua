@@ -24,4 +24,9 @@ class CallbackController extends Controller
         }
         return response()->json(['fail' => 'Ошибка, попробуйте позже.']);
     }
+
+    public function getAll() {
+        $allData = Callback::paginate(10);
+        return view('admin.callbacks', ['callbacks' => $allData]);
+    }
 }
