@@ -23,6 +23,9 @@
                 <p class="author-date">{{ $review->author }} | {{ $review->created_at->format('d.m.Y') }}</p>
             </div>
         @endforeach
+    </div>
+    {!! $reviews->links() !!}
+    <div class="index-content clearfix">
         @include('includes.info-box')
         <div class="review-form">
             <form action="{{ route('post.send.review') }}" method="post" id="review-form">

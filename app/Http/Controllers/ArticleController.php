@@ -14,7 +14,7 @@ class ArticleController extends Controller
     public function getAllArticles() {
         $menus = Menu::where('public','1')->orderBy('sort','asc')->get();
         $page = Page::where('alias','articles')->firstOrFail();
-        $articles = Article::paginate(10);
+        $articles = Article::paginate(2);
         foreach ($articles as $article){
             $article->body = Str::words($article->body, 50);
         }

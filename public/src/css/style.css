@@ -32,9 +32,9 @@ body {
 }
 
 .main-header {
-  margin-bottom: 60px;
-
-  background: #000;
+    margin-bottom: 60px;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1);
 }
 
 .main-navigation {
@@ -661,4 +661,30 @@ body {
     left: 0;
     right: 0;
     margin: 300px auto;
+}
+
+/* Pagination styles */
+.pagination {
+    margin: -15px 0 20px 0;
+    padding: 8px 0;
+    text-align: center;
+    list-style: none;
+    background: rgba(0, 0, 0, 0.35);
+    border: solid 1px rgba(255,255,255,0.1);
+}
+.pagination li{
+    margin: 2px;
+    padding: 8px;
+    display: inline;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 16px;
+}
+.pagination li:hover{
+    background: rgba(255, 255, 255, 0.3);
+}
+.pagination li a{
+    text-decoration: none;
+    color: #fccf1b;
+    cursor: pointer;
 }
