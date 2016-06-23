@@ -24,17 +24,17 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Контент <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Страницы</a></li>
-                            <li><a href="#">Статьи</a></li>
-                            <li><a href="#">Меню</a></li>
+                            <li><a href="{{ url('/admin/pages') }}">Страницы</a></li>
+                            <li><a href="{{ url('/admin/articles') }}">Статьи</a></li>
+                            <li><a href="{{ url('/admin/menus') }}">Меню</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">На связи <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Запросы на обратный звонок</a></li>
-                            <li><a href="#">Запросы со страницы "Контакты"</a></li>
-                            <li><a href="#">Отзывы</a></li>
+                            <li><a href="{{ url('/admin/callbacks') }}">Запросы на обратный звонок</a></li>
+                            <li><a href="{{ url('/admin/feedbacks') }}">Запросы со страницы "Контакты"</a></li>
+                            <li><a href="{{ url('/admin/reviews') }}">Отзывы</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

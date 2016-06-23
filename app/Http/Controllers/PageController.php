@@ -20,4 +20,9 @@ class PageController extends Controller
         }
         return view('pages.single', ['menus' => $menus, 'page' => $page]);
     }
+    
+    public function getAll() {
+        $allData = Page::paginate(10);
+        return view('admin.pages', ['pages' => $allData]);
+    }
 }

@@ -25,4 +25,9 @@ class FeedbackController extends Controller
         $feedback->save();
         return redirect()->back()->with(['success' => 'Ваше сообщение успешно отправлено. Наши специалисты свяжутся с Вами в кратчайшие сроки.']);
     }
+
+    public function getAll() {
+        $allData = Feedback::paginate(10);
+        return view('admin.feedbacks', ['feedbacks' => $allData]);
+    }
 }
