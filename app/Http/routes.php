@@ -96,7 +96,6 @@ Route::group(['middleware' => 'web'], function() {
         'uses' => 'CallbackController@postSendCallback',
         'as' => 'post.send.callback'
     ]);
-
     Route::get('/{alias?}', [
         'uses' => 'PageController@getPageIndex',
         'as' => 'page'
