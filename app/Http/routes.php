@@ -31,25 +31,49 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         'uses' => 'PageController@postCreate',
         'as' => 'admin.post.page.create'
     ]);
-    Route::get('page/{id}/edit', [
+    Route::get('/page/{id}/edit', [
         'uses' => 'PageController@getEdit',
         'as' => 'admin.get.page.edit'
     ]);
-    Route::post('page/edit', [
+    Route::post('/page/edit', [
         'uses' => 'PageController@postEdit',
         'as' => 'admin.post.page.edit'
     ]);
-    Route::get('page/{id}/delete', [
+    Route::get('/page/{id}/delete', [
         'uses' => 'PageController@getDelete',
         'as' => 'admin.get.page.delete'
     ]);
-    Route::get('page/{id}', [
+    Route::get('/page/{id}', [
         'uses' => 'PageController@getPage',
         'as' => 'admin.get.page'
     ]);
     Route::get('/articles', [
         'uses' => 'ArticleController@getAll',
         'as' => 'admin.get.articles'
+    ]);
+    Route::get('/article/create', [
+        'uses' => 'ArticleController@getCreate',
+        'as' => 'admin.get.article.create'
+    ]);
+    Route::post('/article/create', [
+        'uses' => 'ArticleController@postCreate',
+        'as' => 'admin.post.article.create'
+    ]);
+    Route::get('/article/{id}/edit', [
+        'uses' => 'ArticleController@getEdit',
+        'as' => 'admin.get.article.edit'
+    ]);
+    Route::post('/article/edit', [
+        'uses' => 'ArticleController@postEdit',
+        'as' => 'admin.post.article.edit'
+    ]);
+    Route::get('/article/{id}/delete', [
+        'uses' => 'ArticleController@getDelete',
+        'as' => 'admin.get.article.delete'
+    ]);
+    Route::get('/article/{id}', [
+        'uses' => 'ArticleController@getById',
+        'as' => 'admin.get.article'
     ]);
     Route::get('/menus', [
         'uses' => 'MenuController@getAll',

@@ -56,12 +56,12 @@ class PageController extends Controller
         $page->title = $request['title'];
         $page->alias = $request['alias'];
         $page->body = $request['body'];
-        $page->public = $request['public'];
+        $page->public = $request['public'] ? true : false;
         $page->meta_title = $request['meta_title'];
         $page->meta_description = $request['meta_description'];
         $page->meta_keywords = $request['meta_keywords'];
         $page->save();
-        return redirect()->route('admin.get.pages')->with(['success' => 'Страница успешно добавлена']);
+        return redirect()->route('admin.get.pages')->with(['success' => 'Страница успешно создана']);
     }
 
     public function postEdit(Request $request) {
