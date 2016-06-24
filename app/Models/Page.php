@@ -20,4 +20,5 @@ class Page extends Model
             $this->attributes['alias'] = $value;
         }
     }
+    
 }

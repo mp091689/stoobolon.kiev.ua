@@ -2,14 +2,19 @@
 
 @section('content')
     <div class="container">
+        @include('admin.includes.info-box')
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Страницы</div>
-                    <div class="panel-body">
-                        <a href="#" class="btn btn-success">
-                            <span class="glyphicon glyphicon-plus"></span> Создать страницу
-                        </a>
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5>Страницы</h5>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a href="{{ url('/admin/page/create') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Создать страницу</a>
+                            </div>
+                        </div>
                     </div>
                     <table class="table table-striped table-hover">
                         <th>#ID</th>
@@ -30,9 +35,9 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                    <a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <a href="{{ url('/admin/page/'.$page->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                    <a href="{{ url('/admin/page/'.$page->id).'/edit' }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
+                                    <a href="{{ url('/admin/page/'.$page->id).'/delete' }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
                                 </td>
                             </tr>
                         @endforeach

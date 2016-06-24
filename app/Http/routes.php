@@ -23,6 +23,30 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         'uses' => 'PageController@getAll',
         'as' => 'admin.get.pages'
     ]);
+    Route::get('/page/create', [
+        'uses' => 'PageController@getCreate',
+        'as' => 'admin.get.page.create'
+    ]);
+    Route::post('/page/create', [
+        'uses' => 'PageController@postCreate',
+        'as' => 'admin.post.page.create'
+    ]);
+    Route::get('page/{id}/edit', [
+        'uses' => 'PageController@getEdit',
+        'as' => 'admin.get.page.edit'
+    ]);
+    Route::post('page/edit', [
+        'uses' => 'PageController@postEdit',
+        'as' => 'admin.post.page.edit'
+    ]);
+    Route::get('page/{id}/delete', [
+        'uses' => 'PageController@getDelete',
+        'as' => 'admin.get.page.delete'
+    ]);
+    Route::get('page/{id}', [
+        'uses' => 'PageController@getPage',
+        'as' => 'admin.get.page'
+    ]);
     Route::get('/articles', [
         'uses' => 'ArticleController@getAll',
         'as' => 'admin.get.articles'
