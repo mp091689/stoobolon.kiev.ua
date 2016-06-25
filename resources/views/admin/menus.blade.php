@@ -15,6 +15,29 @@
                             <th>Состояние</th>
                             <th>Действие</th>
                         </tr>
+                        <tr class="show-row">
+                            <form role="form" method="post" action="{{ route('admin.post.menu.create') }}" class="form-horizontal">
+                                <td {{ $errors->has('title') ? 'class=has-error' : '' }}><input name="title" type="text" class="form-control" value="{{ Request::old('title') }}" placeholder="Название"></td>
+                                <td {{ $errors->has('sort') ? 'class=has-error' : '' }}><input name="sort" type="number" class="form-control" value="{{ Request::old('sort')?Request::old('sort'):1 }}" placeholder="Сортировка"></td>
+                                <td>
+                                    <select class="form-control" name="page_id">
+                                        @foreach($pages as $page)
+                                            <option value="{{ $page->id }}">{{ $page->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="public" value="checkbox" {{ Request::old('public') ? 'checked' : '' }}>
+                                            Опубликовать
+                                        </label>
+                                    </div>
+                                </td>
+                                <input type="hidden" name="_token" value="{{ Session::token() }}"/>
+                                <td><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button></td>
+                            </form>
+                        </tr>
                         @foreach($menus as $menu)
                             <tr class="show-row" data-id="{{ $menu->id }}">
                                 <td>{{ $menu->title }}</td>
@@ -60,29 +83,6 @@
                                 </form>
                             </tr>
                         @endforeach
-                        <tr class="show-row">
-                            <form role="form" method="post" action="{{ route('admin.post.menu.create') }}" class="form-horizontal">
-                                <td><input name="title" type="text" class="form-control" value="{{ Request::old('title') }}" placeholder="Название"></td>
-                                <td><input name="sort" type="number" class="form-control" value="{{ Request::old('sort')?Request::old('sort'):1 }}" placeholder="Сортировка"></td>
-                                <td>
-                                    <select class="form-control" name="page_id">
-                                        @foreach($pages as $page)
-                                            <option value="{{ $page->id }}">{{ $page->title }}</option>
-                                        @endforeach
-                                    </select>
-                                </td>
-                                <td>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="public" value="checkbox" {{ Request::old('public') ? 'checked' : '' }}>
-                                            Опубликовать
-                                        </label>
-                                    </div>
-                                </td>
-                                <input type="hidden" name="_token" value="{{ Session::token() }}"/>
-                                <td><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button></td>
-                            </form>
-                        </tr>
                     </table>
                 </div>
             </div>

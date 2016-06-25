@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-    public function page(){
+    public function page() {
         return $this->belongsTo('App\Models\Page');
     }
 }

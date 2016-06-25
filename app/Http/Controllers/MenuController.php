@@ -18,6 +18,8 @@ class MenuController extends Controller
     public function postCreate(Request $request) {
         $this->validate($request, [
             'title' => 'required|max:50',
+            'sort' => 'required|unique:menus,sort',
+            //'page_id' => 'unique:menus,sort',
         ]);
         $menu = new Menu();
         $menu->title = $request['title'];
@@ -31,6 +33,7 @@ class MenuController extends Controller
     public function postEdit(Request $request) {
         $this->validate($request, [
             'title' => 'required|max:50',
+            'sort' => 'required|unique:menus,sort,'.$request['id'],
         ]);
         $menu = Menu::find($request['id']);
         $menu->title = $request['title'];

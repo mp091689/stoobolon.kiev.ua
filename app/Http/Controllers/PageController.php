@@ -47,6 +47,9 @@ class PageController extends Controller
     }
 
     public function postCreate(Request $request) {
+        if( $request['alias'] == '' || preg_match('/^ +$/', $request['alias']) ) {
+            $request['alias'] = $this->strToUrl($request['title']);
+        }
         $this->validate($request, [
             'title' => 'required|max:100',
             'alias' => 'unique:pages,alias|regex:/^[-a-z0-9]+$/',
@@ -65,7 +68,9 @@ class PageController extends Controller
     }
 
     public function postEdit(Request $request) {
-        //dd($request['public']);
+        if( $request['alias'] == '' || preg_match('/^ +$/', $request['alias']) ) {
+            $request['alias'] = $this->strToUrl($this->$request['alias']);
+        }
         $this->validate($request, [
             'title' => 'required|max:100',
             'alias' => 'regex:/^[-a-z0-9]+$/|unique:pages,alias,'.$request['id'],
@@ -88,10 +93,56 @@ class PageController extends Controller
 
     public function getDelete($id) {
         $page = Page::find($id);
-        if (!$page) {
+        $successMsg = 'Страница успешно удалена';
+        if ( !$page ) {
             return redirect()->route('admin.get.pages')->with(['fail' => 'Страница не найдена']);
         }
+        if( Menu::where('page_id',$id)->delete() ){
+            $successMsg .= ', так же были удалены связанные со страницей пункты меню';
+        }
         $page->delete();
-        return redirect()->route('admin.get.pages')->with(['success' => 'Страница успешно удалена']);
+        return redirect()->route('admin.get.pages')->with(['success' => $successMsg]);
+    }
+
+    public function rusToTranslit($string){
+        $converter = array(
+            'а' => 'a',   'б' => 'b',   'в' => 'v',
+            'г' => 'g',   'д' => 'd',   'е' => 'e',
+            'ё' => 'e',   'ж' => 'zh',  'з' => 'z',
+            'и' => 'i',   'й' => 'j',   'к' => 'k',
+            'л' => 'l',   'м' => 'm',   'н' => 'n',
+            'о' => 'o',   'п' => 'p',   'р' => 'r',
+            'с' => 's',   'т' => 't',   'у' => 'u',
+            'ф' => 'f',   'х' => 'h',   'ц' => 'c',
+            'ч' => 'ch',  'ш' => 'sh',  'щ' => 'sch',
+            'ь' => '',    'ы' => 'y',   'ъ' => '',
+            'э' => 'e',   'ю' => 'ju',  'я' => 'ja',
+
+            'А' => 'A',   'Б' => 'B',   'В' => 'V',
+            'Г' => 'G',   'Д' => 'D',   'Е' => 'E',
+            'Ё' => 'E',   'Ж' => 'Zh',  'З' => 'Z',
+            'И' => 'I',   'Й' => 'J',   'К' => 'K',
+            'Л' => 'L',   'М' => 'M',   'Н' => 'N',
+            'О' => 'O',   'П' => 'P',   'Р' => 'R',
+            'С' => 'S',   'Т' => 'T',   'У' => 'U',
+            'Ф' => 'F',   'Х' => 'H',   'Ц' => 'C',
+            'Ч' => 'Ch',  'Ш' => 'Sh',  'Щ' => 'Sch',
+            'Ь' => '',    'Ы' => 'Y',   'Ъ' => '',
+            'Э' => 'E',   'Ю' => 'Ju',  'Я' => 'Ja',
+        );
+        return strtr($string, $converter);
+    }
+
+    public function strToUrl($string){
+        $str = $string;
+        // переводим в транслит
+        $str = $this->rusToTranslit($str);
+        // в нижний регистр
+        $str = strtolower($str);
+        // заменям все ненужное нам на "-"
+        $str = preg_replace('/[^-a-z0-9]+/', '-', $str);
+        // удаляем начальные и конечные '-'
+        $str = trim($str, "-");
+        return $str;
     }
 }
