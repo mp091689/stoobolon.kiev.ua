@@ -18,7 +18,7 @@ class CreateFeedbacksTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->text('body');
-            $table->boolean('Attention');
+            $table->boolean('attention');
             $table->timestamps();
         });
     }

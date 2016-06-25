@@ -450,27 +450,28 @@ body {
 }
 
 .footer-copyright .btn:hover {
-  color: #000;
-  background: #fff;
+    color: #000;
+    background: #fff;
 }
 
 .review-form  input, .review-form  textarea  {
-  /*float: left;*/
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 96%;
+    padding: 10px 15px;
+    border: 2px solid #000;
 
-  margin-right: 20px;
-  margin-bottom: 20px;
-  width: 96%;
-  padding: 10px 15px;
-  border: 2px solid #000;
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: 14px;
+    line-height: 24px;
 
-  font-family: "PT Sans Narrow", sans-serif;
-  font-size: 14px;
-  line-height: 24px;
-  /*text-transform: uppercase;*/
-
-  color: #000;
-  background: #f9f6f3;
-  outline: none;
+    color: #000;
+    background: #f9f6f3;
+    outline: none;
+}
+.review-form  input.has-error, .review-form  textarea.has-error  {
+    border-color: #c70000;
+    background-color: #ffdfdf;
 }
 .review-form  textarea {
 	max-width: 96%;

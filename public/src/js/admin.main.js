@@ -9,6 +9,9 @@ $(function () {
         $id = $(this).parent().parent().attr('data-id');
         $('tr[data-id="'+$id+'"]').toggle();
         $('tr').filter('.show-row').find('.btn').addClass('disabled');
+        $('tr.show-row button.btn').attr('onclick','return false');
+        $('tr.show-row input').attr('disabled','disabled')
+        $('tr.show-row select').attr('disabled','disabled');
         $('tr').filter('.show-row').css('background','#e2e2e2');
     })
 });

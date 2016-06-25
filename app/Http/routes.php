@@ -95,19 +95,38 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         'uses' => 'CallbackController@getAll',
         'as' => 'admin.get.callbacks'
     ]);
+    Route::get('/callback/{id}/viewed', [
+        'uses' => 'CallbackController@getViewed',
+        'as' => 'admin.get.callback.viewed',
+    ]);
     Route::get('/feedbacks', [
         'uses' => 'FeedbackController@getAll',
         'as' => 'admin.get.feedbacks'
+    ]);
+    Route::get('/feedback/{id}/viewed', [
+        'uses' => 'FeedbackController@getViewed',
+        'as' => 'admin.get.feedback.viewed',
     ]);
     Route::get('/reviews', [
         'uses' => 'ReviewController@getAll',
         'as' => 'admin.get.reviews'
     ]);
+    Route::get('/review/{id}/public', [
+        'uses' => 'ReviewController@getPublic',
+        'as' => 'admin.get.review.public',
+    ]);
+    Route::get('/review/{id}/delete', [
+        'uses' => 'ReviewController@getDelete',
+        'as' => 'admin.get.review.delete',
+    ]);
     
 });
 
-Route::group(['middleware' => 'web'], function() {
-
+/**
+ * Starting with laravel 5.2
+ * middleware => web - included automatically
+ * there no need to include it manually
+ */
     Route::get('/articles', [
         'uses' => 'ArticleController@getPublicArticles',
         'as' => 'articles'
@@ -136,5 +155,3 @@ Route::group(['middleware' => 'web'], function() {
         'uses' => 'PageController@getPageIndex',
         'as' => 'page'
     ]);
-    
-});

@@ -27,7 +27,17 @@ class FeedbackController extends Controller
     }
 
     public function getAll() {
-        $allData = Feedback::paginate(10);
+        $allData = Feedback::orderBy('attention','desc')->orderBy('created_at','desc')->paginate(20);
         return view('admin.feedbacks', ['feedbacks' => $allData]);
     }
+
+    public function getViewed($id){
+        $feedback = Feedback::find($id);
+        $feedback->attention = false;
+        $feedback->save();
+        return redirect()
+            ->route('admin.get.feedbacks')
+            ->with(['success' => 'Запрос #'.$feedback->id.' от '.$feedback->author.' отмечен как "отработанный"']);
+    }
+
 }

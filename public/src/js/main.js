@@ -7,6 +7,8 @@ $(function () {
     var $modalLoading = $('.modal').find('.loading-svg');
     var $_token = $('.modal input[name="_token"]').val();
 
+    $('[name="phone"]').mask('+38 (999) 999-9999');
+
     // Show modal form
     $('.modal-icon').click(function() {
         $('.modal').fadeIn(300);
@@ -97,7 +99,5 @@ $(function () {
         $modalLoading.css('display', 'none');
         setDefaultColors();
     }
-
-    $('[name="phone"]').mask('+38 (999) 999-9999');
 
 });

@@ -26,7 +26,16 @@ class CallbackController extends Controller
     }
 
     public function getAll() {
-        $allData = Callback::paginate(10);
+        $allData = Callback::orderBy('attention','desc')->orderBy('created_at','desc')->paginate(20);
         return view('admin.callbacks', ['callbacks' => $allData]);
+    }
+
+    public function getViewed($id){
+        $callback = Callback::find($id);
+        $callback->attention = false;
+        $callback->save();
+        return redirect()
+            ->route('admin.get.callbacks')
+            ->with(['success' => 'Запрос #'.$callback->id.' от '.$callback->author.'('.$callback->phone.') отмечен как "отработанный"']);
     }
 }

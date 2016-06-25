@@ -25,7 +25,7 @@
                                 <td>{{ $callback->body }}</td>
                                 <td>
                                     @if( $callback->attention )
-                                        <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span></a>
+                                        <a href="{{ url('/admin/callback/'.$callback->id.'/viewed') }}" class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span></a>
                                     @else
                                         <span class="label label-success"><span class="glyphicon glyphicon-ok"></span> отработан</span>
                                     @endif

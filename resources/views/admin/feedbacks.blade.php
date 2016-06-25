@@ -28,7 +28,7 @@
                                 <td>{{ $feedback->body }}</td>
                                 <td>
                                     @if( $feedback->attention )
-                                        <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span></a>
+                                        <a href="{{ url('/admin/feedback/'.$feedback->id.'/viewed') }}" class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span></a>
                                     @else
                                         <span class="label label-success"><span class="glyphicon glyphicon-ok"></span> отработан</span>
                                     @endif
