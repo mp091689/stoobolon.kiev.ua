@@ -79,6 +79,18 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         'uses' => 'MenuController@getAll',
         'as' => 'admin.get.menus'
     ]);
+    Route::post('/menu/create', [
+        'uses' => 'MenuController@postCreate',
+        'as' => 'admin.post.menu.create'
+    ]);
+    Route::post('/menu/edit', [
+        'uses' => 'MenuController@postEdit',
+        'as' => 'admin.post.menu.edit'
+    ]);
+    Route::get('/menu/{id}/delete', [
+        'uses' => 'MenuController@getDelete',
+        'as' => 'admin.get.menu.delete'
+    ]);
     Route::get('/callbacks', [
         'uses' => 'CallbackController@getAll',
         'as' => 'admin.get.callbacks'

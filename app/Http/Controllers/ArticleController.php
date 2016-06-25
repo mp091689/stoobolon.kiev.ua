@@ -28,7 +28,7 @@ class ArticleController extends Controller
     }
 
     public function getAll() {
-        $allData = Article::paginate(10);
+        $allData = Article::orderBy('created_at','desc')->paginate(10);
         return view('admin.articles.articles', ['articles' => $allData]);
     }
 
