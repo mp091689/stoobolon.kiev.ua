@@ -8,13 +8,15 @@ use App\Models\Menu;
 use App\Models\Page;
 use App\Models\Article;
 use Illuminate\Support\Str;
+use App\Models\Setting;
 
 class ArticleController extends Controller
 {
     public function getPublicArticles() {
         $menus = Menu::where('public','1')->orderBy('sort','asc')->get();
         $page = Page::where('alias','articles')->firstOrFail();
-        $articles = Article::paginate(5);
+        $paginate = Setting::where('key','article_rows')->first();
+        $articles = Article::paginate($paginate->value);
         foreach ($articles as $article){
             $article->body = Str::words($article->body, 50);
         }
@@ -28,7 +30,8 @@ class ArticleController extends Controller
     }
 
     public function getAll() {
-        $allData = Article::orderBy('created_at','desc')->paginate(10);
+        $paginate = Setting::where('key','admin_rows')->first();
+        $allData = Article::orderBy('created_at','desc')->paginate($paginate->value);
         return view('admin.articles.articles', ['articles' => $allData]);
     }
 
@@ -94,7 +97,7 @@ class ArticleController extends Controller
         $article->meta_description = $request['meta_description'];
         $article->meta_keywords = $request['meta_keywords'];
         $article->update();
-        return redirect()->route('admin.get.articles')->with(['success' => 'Статья успешно изменена']);
+        return redirect()->action('ArticleController@getById', $request['id'])->with(['success' => 'Статья успешно изменена']);
     }
 
     public function getDelete($id) {

@@ -13,8 +13,17 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SomeEvent' => [
-            'App\Listeners\EventListener',
+        'App\Events\SendCallbackMail' => [
+            //no mail to user, because no email field in the form
+            'App\Listeners\SendCallbackMailToAdmin',
+        ],
+        'App\Events\SendFeedbackMail' => [
+            'App\Listeners\SendFeedbackMailToUser',
+            'App\Listeners\SendFeedbackMailToAdmin',
+        ],
+        'App\Events\SendReviewMail' => [
+            'App\Listeners\SendReviewMailToUser',
+            'App\Listeners\SendReviewMailToAdmin',
         ],
     ];
 

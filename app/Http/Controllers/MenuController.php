@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Menu;
 use App\Models\Page;
+use App\Models\Setting;
 
 class MenuController extends Controller
 {
     public function getAll() {
-        $menus = Menu::orderBy('sort')->get();
+        $paginate = Setting::where('key','admin_rows')->first();
+        $menus = Menu::orderBy('sort')->paginate($paginate->value);
         $pages = Page::where('public','1')->get();
         return view('admin.menus', ['menus' => $menus, 'pages' => $pages]);
     }

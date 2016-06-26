@@ -119,6 +119,30 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         'uses' => 'ReviewController@getDelete',
         'as' => 'admin.get.review.delete',
     ]);
+    Route::get('/emails', [
+        'uses' => 'EmailTemplateController@getAll',
+        'as' => 'admin.get.emails'
+    ]);
+    Route::get('/email/{id}', [
+        'uses' => 'EmailTemplateController@getById',
+        'as' => 'admin.get.email'
+    ]);
+    Route::get('/email/{id}/edit', [
+        'uses' => 'EmailTemplateController@getEdit',
+        'as' => 'admin.get.email.edit'
+    ]);
+    Route::post('/email/edit', [
+        'uses' => 'EmailTemplateController@postEdit',
+        'as' => 'admin.post.email.edit'
+    ]);
+    Route::get('/settings', [
+        'uses' => 'SettingsController@getSettings',
+        'as' => 'admin.get.settings'
+    ]);
+    Route::post('/settings/set', [
+        'uses' => 'SettingsController@postSet',
+        'as' => 'admin.post.settings.set'
+    ]);
     
 });
 
@@ -127,31 +151,31 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
  * middleware => web - included automatically
  * there no need to include it manually
  */
-    Route::get('/articles', [
-        'uses' => 'ArticleController@getPublicArticles',
-        'as' => 'articles'
-    ]);
-    Route::get('/article/{alias}', [
-        'uses' => 'ArticleController@getArticle',
-        'as' => 'article'
-    ]);
-    Route::get('/reviews', [
-        'uses' => 'ReviewController@getAllReviews',
-        'as' => 'reviews'
-    ]);
-    Route::post('/reviews/send', [
-        'uses' => 'ReviewController@postSendReview',
-        'as' => 'post.send.review'
-    ]);
-    Route::post('/contacts/send', [
-        'uses' => 'FeedbackController@postSendFeedback',
-        'as' => 'post.send.feedback'
-    ]);
-    Route::post('/callback/send', [
-        'uses' => 'CallbackController@postSendCallback',
-        'as' => 'post.send.callback'
-    ]);
-    Route::get('/{alias?}', [
-        'uses' => 'PageController@getPageIndex',
-        'as' => 'page'
-    ]);
+Route::get('/articles', [
+    'uses' => 'ArticleController@getPublicArticles',
+    'as' => 'articles'
+]);
+Route::get('/article/{alias}', [
+    'uses' => 'ArticleController@getArticle',
+    'as' => 'article'
+]);
+Route::get('/reviews', [
+    'uses' => 'ReviewController@getAllReviews',
+    'as' => 'reviews'
+]);
+Route::post('/reviews/send', [
+    'uses' => 'ReviewController@postSendReview',
+    'as' => 'post.send.review'
+]);
+Route::post('/contacts/send', [
+    'uses' => 'FeedbackController@postSendFeedback',
+    'as' => 'post.send.feedback'
+]);
+Route::post('/callback/send', [
+    'uses' => 'CallbackController@postSendCallback',
+    'as' => 'post.send.callback'
+]);
+Route::get('/{alias?}', [
+    'uses' => 'PageController@getPageIndex',
+    'as' => 'page'
+]);

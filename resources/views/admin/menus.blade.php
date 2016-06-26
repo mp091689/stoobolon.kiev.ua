@@ -84,6 +84,9 @@
                             </tr>
                         @endforeach
                     </table>
+                    <div class="row text-center">
+                        {!! $menus->links() !!}
+                    </div>
                 </div>
             </div>
         </div>

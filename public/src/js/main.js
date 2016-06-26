@@ -1,4 +1,14 @@
 $(function () {
+
+    // Add mask for every input field with name=phone
+    $('input[name="phone"]').mask('+38 (999) 999-9999');
+
+    /**
+     *
+     * Modal callback form
+     * Begin
+     *
+     */
     var $modalInput = $('.modal').find('.modal-input');
     var $modalAuthor = $('.modal').find('input[name="author"]');
     var $modalPhone = $('.modal').find('input[name="phone"]');
@@ -6,8 +16,6 @@ $(function () {
     var $modalBtn = $('.modal').find('button');
     var $modalLoading = $('.modal').find('.loading-svg');
     var $_token = $('.modal input[name="_token"]').val();
-
-    $('[name="phone"]').mask('+38 (999) 999-9999');
 
     // Show modal form
     $('.modal-icon').click(function() {
@@ -20,6 +28,8 @@ $(function () {
     $('.modal .modal-content-close').click(function(){
         closeClear();
     });
+    // If there is success or fail message
+    // modal will be closed with any click
     $('.modal').click(function(){
         if ( $('.modal .info-box').css('display') == 'block' ){
             closeClear();
@@ -70,6 +80,7 @@ $(function () {
         });
     });
 
+    // reset all input colors to default
     function setDefaultColors() {
         $modalAuthor.stop().animate({
             backgroundColor: '#eee',
@@ -100,4 +111,11 @@ $(function () {
         setDefaultColors();
     }
 
+    $('.review-form form button.btn').click(function () {
+        $('.review-form form button.btn').css('display','none');
+        $('.review-form form img.loading-svg').css('display', 'inline-block');
+        $('.review-form form input').attr('readonly','readonly');
+        $('.review-form form textarea').attr('readonly','readonly');
+
+    });
 });

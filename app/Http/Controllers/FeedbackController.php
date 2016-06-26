@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SendFeedbackMail;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Feedback;
+use Illuminate\Support\Facades\Event;
+use App\Models\Setting;
 
 class FeedbackController extends Controller
 {
@@ -22,12 +25,17 @@ class FeedbackController extends Controller
         $feedback->phone = $request['phone'];
         $feedback->body = $request['body'];
         $feedback->attention = true;
-        $feedback->save();
-        return redirect()->back()->with(['success' => 'Ваше сообщение успешно отправлено. Наши специалисты свяжутся с Вами в кратчайшие сроки.']);
+        if ( $feedback->save() ) {
+            Event::fire(new SendFeedbackMail($feedback));
+            return redirect()->back()->with(['success' => 'Ваше сообщение успешно отправлено. Наши специалисты свяжутся с Вами в кратчайшие сроки']);
+        }
+        return redirect()->back()->with(['fail' => 'Произошла ошибка, попробуйте позже']);
+
     }
 
     public function getAll() {
-        $allData = Feedback::orderBy('attention','desc')->orderBy('created_at','desc')->paginate(20);
+        $paginate = Setting::where('key','admin_rows')->first();
+        $allData = Feedback::orderBy('attention','desc')->orderBy('created_at','desc')->paginate($paginate->value);
         return view('admin.feedbacks', ['feedbacks' => $allData]);
     }
 

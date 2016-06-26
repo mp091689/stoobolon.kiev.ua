@@ -22,7 +22,26 @@
                                 <td>{{ $callback->id }}</td>
                                 <td>{{ $callback->author }}</td>
                                 <td>{{ $callback->phone }}</td>
-                                <td>{{ $callback->body }}</td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal{{ $callback->id }}">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal{{ $callback->id }}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                    <h4 class="modal-title">{{ $callback->author }}
+                                                    <small>{{ $callback->phone }}</small></h4>
+                                                </div>
+                                                <div class="modal-body" style="white-space: pre-wrap;">{{ $callback->body }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>
                                     @if( $callback->attention )
                                         <a href="{{ url('/admin/callback/'.$callback->id.'/viewed') }}" class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span></a>

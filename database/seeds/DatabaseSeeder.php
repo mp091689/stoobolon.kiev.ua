@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ReviewsTableSeeder::class);
         $this->call(CallbacksTableSeeder::class);
         $this->call(FeedbacksTableSeeder::class);
+        $this->call(EmailTemplatesSeeder::class);
+        $this->call(SettingsSeeder::class);
     }
 }

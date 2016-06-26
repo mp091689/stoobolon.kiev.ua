@@ -24,7 +24,26 @@
                                 <td>{{ $review->id }}</td>
                                 <td>{{ $review->author }}</td>
                                 <td>{{ $review->email }}</td>
-                                <td>{{ $review->body }}</td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal{{ $review->id }}">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal{{ $review->id }}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                    <h4 class="modal-title">{{ $review->author }}
+                                                        <small>{{ $review->phone }}</small></h4>
+                                                </div>
+                                                <div class="modal-body" style="white-space: pre-wrap;">{{ $review->body }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>
                                     @if( $review->public )
                                         <a href="{{ url('/admin/review/'.$review->id.'/delete') }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>

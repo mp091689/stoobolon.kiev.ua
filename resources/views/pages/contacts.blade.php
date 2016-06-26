@@ -25,24 +25,25 @@
             <div class="review-form">
                 <form action="{{ route('post.send.feedback') }}" method="post" id="contacts-form">
                     <div class="input-group">
-                        <input type="text" name="author" placeholder="Имя" value="{{ Request::old('author') }}">
+                        <input type="text" name="author" class="{{ $errors->has('author') ? 'has-error' : '' }}" placeholder="Имя" value="{{ Request::old('author') }}">
                     </div>
                     <div class="input-group">
-                        <input type="text" name="email" placeholder="Email" value="{{ Request::old('email') }}">
+                        <input type="text" name="email" class="{{ $errors->has('email') ? 'has-error' : '' }}" placeholder="Email" value="{{ Request::old('email') }}">
                     </div>
                     <div class="input-group">
-                        <input type="text" name="phone" placeholder="Телефон" value="{{ Request::old('phone') }}">
+                        <input type="text" name="phone" class="{{ $errors->has('phone') ? 'has-error' : '' }}" placeholder="Телефон" value="{{ Request::old('phone') }}">
                     </div>
                     <div class="input-group">
-                        <textarea name="body" rows="6" cols="50" placeholder="Напишите нам и мы с Вами свяжемся">{{ Request::old('body') }}</textarea>
+                        <textarea name="body" class="{{ $errors->has('body') ? 'has-error' : '' }}" rows="6" cols="50" placeholder="Напишите нам и мы с Вами свяжемся">{{ Request::old('body') }}</textarea>
                     </div>
-                    <button class="btn" type="submit" id="contacts-btn">Оставить запрос</button>
+                    <button class="btn" type="submit" id="contacts-btn">Отправить запрос</button>
+                    <img src="src/img/loading.svg" class="loading-svg">
                     <input type="hidden" name="_token" value="{{ Session::token() }}"/>
                 </form>
             </div>
         </section>
         <div class="the-map">
-            <iframe src="https://www.google.com/maps/d/embed?mid=1G7l0YrT4dZoa5QMV2fft8MTzyWo&hl=ru" width="700" height="440"></iframe>
+            {!! $maps->value !!}
         </div>
     </div>
 @endsection

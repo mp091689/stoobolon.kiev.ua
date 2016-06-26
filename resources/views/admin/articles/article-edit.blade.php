@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                             <div class="form-group {{ $errors->has('meta_description') ? 'has-error' : '' }}">
-                                <label for="title" class="col-sm-2 control-label">Описание</label>
+                                <label for="meta_description" class="col-sm-2 control-label">Описание</label>
                                 <div class="col-sm-10">
                                     <textarea name="meta_description" id="meta_description" class="form-control" rows="3">{{ Request::old('meta_description') ? Request::old('meta_description') : $article->meta_description }}</textarea>
                                 </div>

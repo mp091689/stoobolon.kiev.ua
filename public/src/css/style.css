@@ -649,7 +649,6 @@ body {
 }
 
 .modal-content .login-form .loading-svg {
-    display: none;
     margin: 15px auto 0 auto;
 }
 
@@ -688,4 +687,9 @@ body {
     text-decoration: none;
     color: #fccf1b;
     cursor: pointer;
+}
+
+.loading-svg {
+    display: none;
+    width: 42px;
 }

@@ -12,7 +12,7 @@
                                 <h5><abbr title="Алиас: {{ $article->alias }}">{{ $article->title }}</abbr></h5>
                             </div>
                             <div class="col-xs-6 text-right">
-                                <a href="{{ url('/admin/articles') }}" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                                <a href="{{ url('/admin/articles') }}" class="btn btn-info"><span class="glyphicon glyphicon-list"></span></a>
                                 <a href="{{ url('/admin/article/'.$article->id).'/edit' }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
                                 <a href="{{ url('/admin/article/'.$article->id).'/delete' }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
                             </div>

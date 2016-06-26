@@ -40,8 +40,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Настройки <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Настройки сайта</a></li>
-                            <li><a href="#">Шаблоны писем</a></li>
+                            <li><a href="{{ url('/admin/settings') }}">Настройки сайта</a></li>
+                            <li><a href="{{ url('/admin/emails') }}">Почтовые уведомления</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Callback;
+use Illuminate\Support\Facades\Event;
+use App\Events\SendCallbackMail;
 
 class CallbackController extends Controller
 {
@@ -20,12 +22,14 @@ class CallbackController extends Controller
         $callback->body = $request['body'];
         $callback->attention = true;
         if ( $callback->save() ){
+            Event::fire(new SendCallbackMail($callback));
             return response()->json(['success' => 'Спасибо за Ваше обращение, Наши Специалисты свяжутся с вами в кратчайшие сроки']);
         }
         return response()->json(['fail' => 'Ошибка, попробуйте позже.']);
     }
 
     public function getAll() {
+        
         $allData = Callback::orderBy('attention','desc')->orderBy('created_at','desc')->paginate(20);
         return view('admin.callbacks', ['callbacks' => $allData]);
     }

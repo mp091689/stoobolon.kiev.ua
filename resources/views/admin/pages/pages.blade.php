@@ -37,7 +37,7 @@
                                 <td>
                                     <a href="{{ url('/admin/page/'.$page->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a href="{{ url('/admin/page/'.$page->id).'/edit' }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="{{ url('/admin/page/'.$page->id).'/delete' }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <a href="{{ url('/admin/page/'.$page->id).'/delete' }}" class="btn btn-danger {{ $page->permition }}"><span class="glyphicon glyphicon-trash"></span></a>
                                 </td>
                             </tr>
                         @endforeach

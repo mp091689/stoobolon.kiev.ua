@@ -25,7 +25,26 @@
                                 <td>{{ $feedback->author }}</td>
                                 <td>{{ $feedback->email }}</td>
                                 <td>{{ $feedback->phone }}</td>
-                                <td>{{ $feedback->body }}</td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal{{ $feedback->id }}">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal{{ $feedback->id }}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                    <h4 class="modal-title">{{ $feedback->author }}
+                                                        <small>{{ $feedback->phone }}</small></h4>
+                                                </div>
+                                                <div class="modal-body" style="white-space: pre-wrap;">{{ $feedback->body }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>
                                     @if( $feedback->attention )
                                         <a href="{{ url('/admin/feedback/'.$feedback->id.'/viewed') }}" class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span></a>

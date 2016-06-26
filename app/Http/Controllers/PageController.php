@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Menu;
 use App\Models\Page;
+use App\Models\Setting;
 
 class PageController extends Controller
 {
@@ -16,13 +17,23 @@ class PageController extends Controller
         if ($alias == 'public') {
             return view('pages.public', ['menus' => $menus, 'page' => $page]);
         } elseif ($alias == 'contacts') {
-            return view('pages.contacts', ['menus' => $menus, 'page' => $page]);
+            $maps = Setting::where('key','maps')->first();
+            return view('pages.contacts', ['menus' => $menus, 'page' => $page, 'maps' => $maps]);
         }
         return view('pages.single', ['menus' => $menus, 'page' => $page]);
     }
     
     public function getAll() {
-        $allPages = Page::paginate(10);
+        $paginate = Setting::where('key','admin_rows')->first();
+        $allPages = Page::paginate($paginate->value);
+        foreach ($allPages as $page) {
+            if ($page->alias == 'public' ||
+                $page->alias == 'articles' ||
+                $page->alias == 'reviews' ||
+                $page->alias == 'contacts') {
+                $page->permition='disabled';
+            }
+        }
         return view('admin.pages.pages', ['pages' => $allPages]);
     }
 
@@ -30,6 +41,12 @@ class PageController extends Controller
         $page = Page::find($id);
         if (!$page) {
             return redirect()->route('admin.get.pages')->with(['fail' => 'Страница не найдена']);
+        }
+        if ($page->alias == 'public' ||
+            $page->alias == 'articles' ||
+            $page->alias == 'reviews' ||
+            $page->alias == 'contacts') {
+            $page->permition='disabled';
         }
         return view('admin/pages/page', ['page' => $page]);
     }
@@ -88,7 +105,7 @@ class PageController extends Controller
         $page->meta_description = $request['meta_description'];
         $page->meta_keywords = $request['meta_keywords'];
         $page->update();
-        return redirect()->route('admin.get.pages')->with(['success' => 'Страница успешно изменена']);
+        return redirect()->action('PageController@getPage', $request['id'])->with(['success' => 'Страница успешно изменена']);
     }
 
     public function getDelete($id) {
