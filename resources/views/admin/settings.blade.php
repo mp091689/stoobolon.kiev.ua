@@ -56,6 +56,7 @@
                                                                 value="{{ Request::old('emails') ? Request::old('emails') : $setting->emails }}">
                                                         <span class="input-group-btn"><button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-ok"></span> сохранить</button></span>
                                                     </div>
+                                                    <span class="help-block">На указаный почтовый адресс будут приходить все запросы и уведомления. Через запятую можно указать несколько почтывх адресов.</span>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="_token" value="{{ Session::token() }}">

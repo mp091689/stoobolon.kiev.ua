@@ -32,6 +32,7 @@ class SendFeedbackMailToUser
 
         $mails = Setting::where('key','emails')->first();
         $emails = explode(',',$mails->value);
+        $emails = array_map('trim', $emails);
 
         $feedback = $event->feedback;
         $template = EmailTemplate::find(2);

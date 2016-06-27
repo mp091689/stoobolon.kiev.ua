@@ -21,7 +21,6 @@ class MenuController extends Controller
         $this->validate($request, [
             'title' => 'required|max:50',
             'sort' => 'required|unique:menus,sort',
-            //'page_id' => 'unique:menus,sort',
         ]);
         $menu = new Menu();
         $menu->title = $request['title'];

@@ -29,9 +29,9 @@
                         Помни, посещая веб сайт, клиент ищет конкрентую информацию. Внимательно и грамотно наполняй сайт контентом.
                     </div>
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-list"></span> Создавай страницы для сайта</a>
-                        <a href="#" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-list"></span> Пиши статьи, новости, обзоры</a>
-                        <a href="#" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-list"></span> Настрой меню для удобной навигации по сайту</a>
+                        <a href="{{ url('/admin/pages') }}" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-list"></span> Создавай страницы для сайта</a>
+                        <a href="{{ url('/admin/articles') }}" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-list"></span> Пиши статьи, новости, обзоры</a>
+                        <a href="{{ url('/admin/menus') }}" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-list"></span> Настрой меню для удобной навигации по сайту</a>
                     </div>
                 </div>
             </div>

@@ -31,6 +31,7 @@ class SendReviewMailToAdmin
     {
         $mails = Setting::where('key','emails')->first();
         $emails = explode(',',$mails->value);
+        $emails = array_map('trim', $emails);
         
         $review = $event->review;
         $template = EmailTemplate::find(5);

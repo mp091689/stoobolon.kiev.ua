@@ -143,6 +143,18 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         'uses' => 'SettingsController@postSet',
         'as' => 'admin.post.settings.set'
     ]);
+    Route::get('/user', [
+        'uses' => 'Auth\UserController@getUser',
+        'as' => 'admin.get.user'
+    ]);
+    Route::post('/user/set/email', [
+        'uses' => 'Auth\UserController@postSetEmail',
+        'as' => 'admin.post.user.set.email'
+    ]);
+    Route::post('/user/set/pass', [
+        'uses' => 'Auth\UserController@postSetPass',
+        'as' => 'admin.post.user.set.pass'
+    ]);
     
 });
 

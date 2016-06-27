@@ -42,7 +42,7 @@ class EmailTemplateController extends Controller
         $email->body = $request['body'];
         $email->active = $request['active'] ? true : false;
         $email->update();
-        return redirect()->route('admin.get.emails')->with(['success' => 'Шаблон успешно изменен']);
+        return redirect()->route('admin.get.email', ['email' => $email])->with(['success' => 'Шаблон успешно изменен']);
     }
 
 }

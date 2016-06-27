@@ -32,6 +32,7 @@ class SendCallbackMailToAdmin
 
         $mails = Setting::where('key','emails')->first();
         $emails = explode(',',$mails->value);
+        $emails = array_map('trim', $emails);
 
         $callback = $event->callback;
         $template = EmailTemplate::find(1);

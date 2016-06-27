@@ -2,14 +2,6 @@
     <div class="container">
         <div class="navbar-header">
 
-            <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
                 СТО
@@ -24,24 +16,24 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Контент <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/admin/pages') }}">Страницы</a></li>
-                            <li><a href="{{ url('/admin/articles') }}">Статьи</a></li>
-                            <li><a href="{{ url('/admin/menus') }}">Меню</a></li>
+                            <li><a href="{{ url('/admin/pages') }}"><i class="glyphicon glyphicon-file"></i> Страницы</a></li>
+                            <li><a href="{{ url('/admin/articles') }}"><i class="glyphicon glyphicon-align-justify"></i> Статьи</a></li>
+                            <li><a href="{{ url('/admin/menus') }}"><i class="glyphicon glyphicon-share-alt"></i> Меню</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">На связи <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/admin/callbacks') }}">Запросы на обратный звонок</a></li>
-                            <li><a href="{{ url('/admin/feedbacks') }}">Запросы со страницы "Контакты"</a></li>
-                            <li><a href="{{ url('/admin/reviews') }}">Отзывы</a></li>
+                            <li><a href="{{ url('/admin/callbacks') }}"><i class="glyphicon glyphicon-earphone"></i> Запросы на обратный звонок</a></li>
+                            <li><a href="{{ url('/admin/feedbacks') }}"><i class="glyphicon glyphicon-question-sign"></i> Запросы со страницы "Контакты"</a></li>
+                            <li><a href="{{ url('/admin/reviews') }}"><i class="glyphicon glyphicon-volume-up"></i> Отзывы</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Настройки <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/admin/settings') }}">Настройки сайта</a></li>
-                            <li><a href="{{ url('/admin/emails') }}">Почтовые уведомления</a></li>
+                            <li><a href="{{ url('/admin/settings') }}"><i class="glyphicon glyphicon-cog"></i> Настройки сайта</a></li>
+                            <li><a href="{{ url('/admin/emails') }}"><i class="glyphicon glyphicon-envelope"></i> Почтовые уведомления</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -59,7 +51,8 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            <li><a href="{{ url('/admin/user') }}"><i class="glyphicon glyphicon-cog"></i> Настройки</a></li>
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Выход</a></li>
                         </ul>
                     </li>
                 @endif
