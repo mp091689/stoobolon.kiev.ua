@@ -69,4 +69,14 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function getRegister()
+    {
+        return redirect('/');
+    }
+
+    public function postRegister()
+    {
+        return redirect('/');
+    }
 }

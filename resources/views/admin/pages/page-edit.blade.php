@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('script')
+    <script>
+        var editor = CKEDITOR.replace( 'body' );
+    </script>
+@endsection
+
 @section('content')
     <div class="container">
         @include('admin.includes.info-box')

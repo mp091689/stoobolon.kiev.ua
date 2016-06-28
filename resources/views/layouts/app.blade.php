@@ -33,9 +33,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
     <script src="{{ URL::asset('src/js/ckeditor/ckeditor.js') }}"></script>
-    <script>
-        var editor = CKEDITOR.replace( 'body' );
-    </script>
     <script src="{{ URL::asset('src/js/admin.main.js') }}"></script>
+    @yield('script')
 </body>
 </html>
