@@ -13,33 +13,9 @@ class CallbacksTableSeeder extends Seeder
     {
         DB::table('callbacks')->insert([
             'author' => 'Джон Доу',
-            'phone' => '+38 (999) 999 99 99',
-            'body' => 'Перезвоните мне.',
+            'phone' => '+38 (999) 999 9999',
+            'body' => 'Это тестовая заявка, не реагируйте на нее.',
             'attention' => '1',
-        ]);
-        DB::table('callbacks')->insert([
-            'author' => 'Джон Доу',
-            'phone' => '+38 (999) 999 99 99',
-            'body' => 'Перезвоните мне.',
-            'attention' => '0',
-        ]);
-        DB::table('callbacks')->insert([
-            'author' => 'Джон Доу',
-            'phone' => '+38 (999) 999 99 99',
-            'body' => 'Перезвоните мне.',
-            'attention' => '0',
-        ]);
-        DB::table('callbacks')->insert([
-            'author' => 'Джон Доу',
-            'phone' => '+38 (999) 999 99 99',
-            'body' => 'Перезвоните мне.',
-            'attention' => '1',
-        ]);
-        DB::table('callbacks')->insert([
-            'author' => 'Джон Доу',
-            'phone' => '+38 (999) 999 99 99',
-            'body' => 'Перезвоните мне.',
-            'attention' => '0',
         ]);
     }
 }

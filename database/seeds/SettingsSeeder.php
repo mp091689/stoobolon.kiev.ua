@@ -33,7 +33,7 @@ class SettingsSeeder extends Seeder
         ]);
         DB::table('settings')->insert([
             'key' => 'admin_rows',
-            'value' => '10',
+            'value' => '15',
         ]);
     }
 }

@@ -13,37 +13,9 @@ class FeedbacksTableSeeder extends Seeder
     {
         DB::table('feedbacks')->insert([
             'author' => 'Джон Доу',
-            'email' => 'example@gmail.com',
-            'phone' => '+38 (999) 999 99 99',
-            'body' => 'Что такое лорем ипсум?',
-            'attention' => '0',
-        ]);
-        DB::table('feedbacks')->insert([
-            'author' => 'Джон Доу',
-            'email' => 'example@gmail.com',
-            'phone' => '+38 (999) 999 99 99',
-            'body' => 'Что такое лорем ипсум?',
-            'attention' => '1',
-        ]);
-        DB::table('feedbacks')->insert([
-            'author' => 'Джон Доу',
-            'email' => 'example@gmail.com',
-            'phone' => '+38 (999) 999 99 99',
-            'body' => 'Что такое лорем ипсум?',
-            'attention' => '1',
-        ]);
-        DB::table('feedbacks')->insert([
-            'author' => 'Джон Доу',
-            'email' => 'example@gmail.com',
-            'phone' => '+38 (999) 999 99 99',
-            'body' => 'Что такое лорем ипсум?',
-            'attention' => '0',
-        ]);
-        DB::table('feedbacks')->insert([
-            'author' => 'Джон Доу',
-            'email' => 'example@gmail.com',
-            'phone' => '+38 (999) 999 99 99',
-            'body' => 'Что такое лорем ипсум?',
+            'email' => 'example@example.com',
+            'phone' => '+38 (999) 999 9999',
+            'body' => 'Это тестовая заявка. Не обращайте вниманияна эту заявку.',
             'attention' => '1',
         ]);
     }

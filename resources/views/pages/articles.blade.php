@@ -18,7 +18,7 @@
         {!! $page->body !!}
     @foreach($articles as $article)
         <div class="index-content clearfix">
-            <h2 class="content-column-title">{{ $article->title }}</h2>
+            {{--<h2 class="content-column-title">{{ $article->title }}</h2>--}}
             {!! $article->body !!}
             <div class="btn-wrap">
                 <a href="/article/{{ $article->alias }}" class="btn">Читать полностью</a>

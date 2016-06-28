@@ -16,7 +16,7 @@ class ArticleController extends Controller
         $menus = Menu::where('public','1')->orderBy('sort','asc')->get();
         $page = Page::where('alias','articles')->firstOrFail();
         $paginate = Setting::where('key','article_rows')->first();
-        $articles = Article::paginate($paginate->value);
+        $articles = Article::orderBy('created_at','desc')->paginate($paginate->value);
         foreach ($articles as $article){
             $article->body = Str::words($article->body, 50);
         }
