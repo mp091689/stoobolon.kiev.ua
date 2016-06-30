@@ -42,7 +42,7 @@ class SendFeedbackMailToAdmin
         );
         Mail::send('emails.master', ['template' => $template],
             function($m)use($emails, $feedback){
-                $m->from($feedback->email);
+                $m->from($feedback->email, $feedback->author);
                 $m->to($emails);
                 $m->subject('Новый ЗАПРОС от: '.$feedback->email);
             }

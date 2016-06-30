@@ -42,9 +42,9 @@ class SendReviewMailToAdmin
         );
         Mail::send('emails.master', ['template' => $template],
             function($m)use($emails, $review){
-                $m->from($review->email);
+                $m->from($review->email, $review->author);
                 $m->to($emails);
-                $m->subject('Новый ЗАПРОС от: '.$review->email);
+                $m->subject('Новый ОТЗЫВ от: '.$review->email);
             }
         );
     }
