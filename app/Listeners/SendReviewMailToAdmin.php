@@ -32,6 +32,7 @@ class SendReviewMailToAdmin
         $mails = Setting::where('key','emails')->first();
         $emails = explode(',',$mails->value);
         $emails = array_map('trim', $emails);
+        dd($emails);
         
         $review = $event->review;
         $template = EmailTemplate::find(5);
@@ -40,12 +41,15 @@ class SendReviewMailToAdmin
             [$review->author,$review->phone,$review->email,$review->body],
             $template->body
         );
-        Mail::send('emails.master', ['template' => $template],
-            function($m)use($emails, $review){
-                $m->from($review->email, $review->author);
-                $m->to($emails);
-                $m->subject('Новый ОТЗЫВ от: '.$review->email);
-            }
-        );
+
+        if ( $template->active ) {
+            Mail::send('emails.master', ['template' => $template],
+                function($m)use($emails, $review){
+                    $m->from($emails[0],'СТО "На Оболони"');
+                    $m->to($emails);
+                    $m->subject('Новый ОТЗЫВ от: '.$review->email);
+                }
+            );
+        }
     }
 }

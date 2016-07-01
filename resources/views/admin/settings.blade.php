@@ -14,6 +14,7 @@
                     </div>
                     @include('admin.includes.info-box')
                     <div class="panel-body">
+                        {{-- Название сайта / начало --}}
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="panel panel-default">
@@ -39,6 +40,8 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- Название сайта / конец --}}
+                        {{-- Админ почта / начало --}}
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="panel panel-default">
@@ -65,6 +68,8 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- Админ почта / конец --}}
+                        {{-- Количество записей, пагинация / начало --}}
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="panel panel-default">
@@ -125,6 +130,38 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- Количество записей, пагинация / конец --}}
+                        {{-- Фон сайта / начало --}}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <form action="{{ route('admin.post.settings.set') }}" enctype="multipart/form-data" role="form" method="post" class="form-horizontal">
+                                            <div class="form-group {{ $errors->has('background') ? 'has-error' : '' }}">
+                                                <label for="background" class="col-sm-2 control-label">Фон сайта</label>
+                                                <div class="col-sm-10">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <a href="{{ $setting->background }}"  target="_blank"><img src="{{ $setting->background }}" alt="" width="300"></a>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input type="file" name="background" id="background" accept="image/jpeg">
+                                                            <span class="help-block">Можно загружать только JPEG файлы. Старайся перед загрузкой сжимать изображения так, что бы их объем не превышал 200кб, иначе загрузка сайта будет ощутимо медленнее.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-right">
+                                                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Сохранить</button>
+                                            </div>
+                                            <input type="hidden" name="_token" value="{{ Session::token() }}">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- Фон сайта / конец --}}
+                        {{-- гугл/яндекс карты / начало --}}
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="panel panel-default">
@@ -145,6 +182,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- гугл/яндекс карты / конец --}}
                     </div>
                 </div>
             </div>

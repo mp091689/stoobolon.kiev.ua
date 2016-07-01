@@ -41,12 +41,15 @@ class SendCallbackMailToAdmin
             [$callback->author,$callback->phone,$callback->body],
             $template->body
         );
-        Mail::send('emails.master', ['template' => $template],
-            function($m)use($emails, $callback){
-                $m->from($emails[0]);
-                $m->to($emails);
-                $m->subject('Обратный звонок: '.$callback->phone);
-            }
-        );
+        
+        if ( $template->active ) {
+            Mail::send('emails.master', ['template' => $template],
+                function($m)use($emails, $callback){
+                    $m->from($emails[0],'СТО "На Оболони"');
+                    $m->to($emails);
+                    $m->subject('Обратный звонок: '.$callback->phone);
+                }
+            );
+        }
     }
 }

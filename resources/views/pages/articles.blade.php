@@ -15,7 +15,9 @@
 
 @section('content')
 <div class="container">
+    <div class="page-body">
         {!! $page->body !!}
+    </div>
     @foreach($articles as $article)
         <div class="index-content clearfix">
             {{--<h2 class="content-column-title">{{ $article->title }}</h2>--}}

@@ -79,8 +79,19 @@ class SettingsController extends Controller
             return redirect()->route('admin.get.settings')->with(['success' => $successMsg]);
         }
 
+        if ( isset($request['background']) ) {
+            $this->validate($request, [
+                'background' => 'required|image|mimes:jpeg',
+            ]);
+            if ( $request->hasFile('background') ) {
+                $img = $request->file('background');
+                $name = 'body-bg.' .$img->getClientOriginalExtension();
+                $img->move(public_path().'/src/img/', $name);
+                return redirect()->route('admin.get.settings')->with(['success' => $successMsg]);
+            }
+        }
+
         return redirect()->route('admin.get.settings')->with(['fail' => 'SettingsController@postSte не описана конфигурация, которую вы пытаетесь записать']);
 
     }
-
 }

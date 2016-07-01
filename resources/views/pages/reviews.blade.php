@@ -14,7 +14,9 @@
 
 
 @section('content')
-    {!! $page->body !!}
+    <div class="page-body">
+        {!! $page->body !!}
+    </div>
     <div class="index-content clearfix">
         @include('includes.info-box')
         @foreach($reviews as $review)

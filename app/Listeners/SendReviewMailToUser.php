@@ -40,12 +40,15 @@ class SendReviewMailToUser
             [$review->author,$review->phone,$review->email,$review->body],
             $template->body
         );
-        Mail::send('emails.master', ['template' => $template],
-            function($m)use($emails, $review){
-                $m->from($emails[0], 'СТО на Оболони');
-                $m->to($review->email,$review->author);
-                $m->subject('Мы получили Ваше сообщение');
-            }
-        );
+
+        if ( $template->active ) {
+            Mail::send('emails.master', ['template' => $template],
+                function($m)use($emails, $review){
+                    $m->from($emails[0],'СТО "На Оболони"');
+                    $m->to($review->email,$review->author);
+                    $m->subject('Мы получили Ваше сообщение');
+                }
+            );
+        }
     }
 }

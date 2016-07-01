@@ -41,12 +41,15 @@ class SendFeedbackMailToUser
             [$feedback->author,$feedback->phone,$feedback->email,$feedback->body],
             $template->body
         );
-        Mail::send('emails.master', ['template' => $template],
-            function($m)use($emails, $feedback){
-                $m->from($emails[0], 'СТО на Оболони');
-                $m->to($feedback->email,$feedback->author);
-                $m->subject('Мы получили Ваше сообщение');
-            }
-        );
+
+        if ( $template->active ) {
+            Mail::send('emails.master', ['template' => $template],
+                function($m)use($emails, $feedback){
+                    $m->from($emails[0],'СТО "На Оболони"');
+                    $m->to($feedback->email,$feedback->author);
+                    $m->subject('Мы получили Ваше сообщение');
+                }
+            );
+        }
     }
 }
