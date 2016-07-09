@@ -382,8 +382,9 @@ body {
 }
 
 .footer-social {
-  float: left;
-  text-align: center;
+    float: left;
+    text-align: center;
+    width: 220px;
 }
 
 .footer-copyright {
@@ -402,7 +403,7 @@ body {
 }
 
 .social-btn {
-  margin: 0 2px;
+  margin: 4px 2px;
   display: inline-block;
   vertical-align: top;
   width: 43px;
@@ -411,36 +412,29 @@ body {
   font-size: 0;
   text-decoration: none;
 
-  background: #000 url("../img/spritesheet.png") no-repeat center;
+  background: #000 url("../img/soc-icons.png") no-repeat center;
 }
 
 .social-btn:hover {
     background-color: #fff;
 }
 
-.social-btn-vk {
-  background-position: -5px -363px;
-}
-
-.social-btn-fb {
-  background-position: -5px -65px;
-}
-
-.social-btn-inst {
-  background-position: -5px -197px;
-}
-
-.social-btn-vk:hover {
-  background-position: -5px -416px;
-}
-
-.social-btn-fb:hover {
-  background-position: -5px -118px;
-}
-
-.social-btn-inst:hover {
-  background-position: -5px -250px;
-}
+.social-btn-facebook {background-position: -4px -69px;}
+.social-btn-vkontakte {background-position: -180px -69px;}
+.social-btn-instagram {background-position: -354px -69px;}
+.social-btn-google {background-position: -414px -69px;}
+.social-btn-youtube {background-position: -296px -69px;}
+.social-btn-twitter {background-position: -62px -69px;}
+.social-btn-odnoklassniki {background-position: -238px -69px;}
+.social-btn-linkedin {background-position: -121px -69px;}
+.social-btn-facebook:hover {background-position: -4px -5px;}
+.social-btn-vkontakte:hover {background-position: -180px -5px;}
+.social-btn-instagram:hover {background-position: -354px -5px;}
+.social-btn-google:hover {background-position: -414px -5px;}
+.social-btn-youtube:hover {background-position: -296px -5px;}
+.social-btn-twitter:hover {background-position: -62px -5px;}
+.social-btn-odnoklassniki:hover {background-position: -238px -5px;}
+.social-btn-linkedin:hover {background-position: -121px -5px;}
 
 .footer-copyright p {
   margin: 0;

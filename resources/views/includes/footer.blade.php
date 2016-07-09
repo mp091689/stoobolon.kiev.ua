@@ -11,9 +11,9 @@
         </section>
         <section class="footer-social">
             <p>Мы в социальных сетях</p>
-            <a href="#" class="social-btn social-btn-vk">Вконтакте</a>
-            <a href="https://www.facebook.com/sto.obolon/" class="social-btn social-btn-fb">Фейсбук</a>
-            {{--<a href="#" class="social-btn social-btn-inst">Инстаграм</a>--}}
+            @foreach( $socialbuttons as $socialbutton )
+                <a href="{{ $socialbutton->url }}" class="social-btn social-btn-{{ $socialbutton->title }}">{{ $socialbutton->title }}</a>
+            @endforeach
         </section>
         <section class="footer-copyright">
             <p>Автор сайта:</p>

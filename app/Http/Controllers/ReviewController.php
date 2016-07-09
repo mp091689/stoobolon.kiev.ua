@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\SendReviewMail;
+use App\Models\SocialButtons;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Menu;
@@ -15,10 +16,16 @@ class ReviewController extends Controller
 {
     public function getAllReviews() {
         $menus = Menu::where('public','1')->orderBy('sort','asc')->get();
+        $socialbuttons = SocialButtons::where('url', '<>', '')->get();
         $page = Page::where('alias','reviews')->firstOrFail();
         $paginate = Setting::where('key','review_rows')->first();
         $reviews = Review::where('public','1')->orderBy('created_at','desc')->paginate($paginate->value);
-        return view('pages.reviews', ['menus' => $menus, 'page' => $page, 'reviews' => $reviews]);
+        return view('pages.reviews', [
+            'menus' => $menus,
+            'page' => $page,
+            'reviews' => $reviews,
+            'socialbuttons' => $socialbuttons,
+        ]);
     }
 
     public function postSendReview(Request $request) {

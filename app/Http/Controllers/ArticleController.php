@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SocialButtons;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Menu;
@@ -14,19 +15,30 @@ class ArticleController extends Controller
 {
     public function getPublicArticles() {
         $menus = Menu::where('public','1')->orderBy('sort','asc')->get();
+        $socialbuttons = SocialButtons::where('url', '<>', '')->get();
         $page = Page::where('alias','articles')->firstOrFail();
         $paginate = Setting::where('key','article_rows')->first();
         $articles = Article::orderBy('created_at','desc')->paginate($paginate->value);
         foreach ($articles as $article){
             $article->body = Str::words($article->body, 50);
         }
-        return view('pages.articles', ['menus' => $menus, 'page' => $page, 'articles' => $articles]);
+        return view('pages.articles', [
+            'menus' => $menus,
+            'page' => $page,
+            'articles' => $articles,
+            'socialbuttons' => $socialbuttons,
+        ]);
     }
     
     public function getArticle($alias) {
         $menus = Menu::where('public','1')->orderBy('sort','asc')->get();
+        $socialbuttons = SocialButtons::where('url', '<>', '')->get();
         $article = Article::where('alias',$alias)->firstOrFail();
-        return view('pages.single', ['menus' => $menus, 'page' => $article]);
+        return view('pages.single', [
+            'menus' => $menus,
+            'page' => $article,
+            'socialbuttons' => $socialbuttons,
+        ]);
     }
 
     public function getAll() {

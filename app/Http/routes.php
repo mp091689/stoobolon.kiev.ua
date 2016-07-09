@@ -155,7 +155,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
         'uses' => 'Auth\UserController@postSetPass',
         'as' => 'admin.post.user.set.pass'
     ]);
-    
+    Route::get('/soc-icons', [
+        'uses' => 'SocialButtonsController@getAll',
+        'as' => 'admin.get.socialbuttons'
+    ]);
+    Route::post('/soc-icons/set', [
+        'uses' => 'SocialButtonsController@postSetUrl',
+        'as' => 'admin.post.socialbuttons.set.url'
+    ]);
 });
 
 /**

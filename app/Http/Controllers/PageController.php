@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Menu;
+use App\Models\SocialButtons;
 use App\Models\Page;
 use App\Models\Setting;
 
@@ -12,15 +13,29 @@ class PageController extends Controller
 {
     public function getPageIndex($alias = 'public'){
         $menus = Menu::where('public','1')->orderBy('sort','asc')->get();
+        $socialbuttons = SocialButtons::where('url', '<>', '')->get();
         $page = Page::where('alias',$alias)->firstOrFail();
 
         if ($alias == 'public') {
-            return view('pages.public', ['menus' => $menus, 'page' => $page]);
+            return view('pages.public', [
+                'menus' => $menus,
+                'page' => $page,
+                'socialbuttons' => $socialbuttons,
+            ]);
         } elseif ($alias == 'contacts') {
             $maps = Setting::where('key','maps')->first();
-            return view('pages.contacts', ['menus' => $menus, 'page' => $page, 'maps' => $maps]);
+            return view('pages.contacts', [
+                'menus' => $menus,
+                'page' => $page,
+                'socialbuttons' => $socialbuttons,
+                'maps' => $maps,
+            ]);
         }
-        return view('pages.single', ['menus' => $menus, 'page' => $page]);
+        return view('pages.single', [
+            'menus' => $menus,
+            'page' => $page,
+            'socialbuttons' => $socialbuttons,
+        ]);
     }
     
     public function getAll() {

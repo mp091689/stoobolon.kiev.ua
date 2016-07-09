@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FeedbacksTableSeeder::class);
         $this->call(EmailTemplatesSeeder::class);
         $this->call(SettingsSeeder::class);
+        $this->call(SocialButtonsTableSeeder::class);
     }
 }

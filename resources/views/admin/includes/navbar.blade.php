@@ -40,6 +40,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/admin/settings') }}"><i class="glyphicon glyphicon-cog"></i> Настройки сайта</a></li>
                             <li><a href="{{ url('/admin/emails') }}"><i class="glyphicon glyphicon-envelope"></i> Почтовые уведомления</a></li>
+                            <li><a href="{{ url('/admin/soc-icons') }}"><i class="glyphicon glyphicon-thumbs-up"></i> Кнопки соцсетей</a></li>
                         </ul>
                     </li>
                 </ul>
