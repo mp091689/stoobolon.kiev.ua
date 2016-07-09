@@ -21,21 +21,10 @@
                 <span style="color: #fff; font-size: 48px; font-style: italic">СТО "НА ОБОЛОНИ"</span><br/>
                 <span style="color: #fccf1b; font-size: 22px; font-style: italic">Качественный сервис для вашей машины</span>
             </div>
-
-            <section class="features-row clearfix">
-                <div class="features-item">
-                    <div class="features-title">Быстро</div>
-                    <p>Мы делаем свою работу быстро. Наши специалисты выполнят ремонт вашего автомобиля в кратчайшие сроки.</p>
-                </div>
-                <div class="features-item">
-                    <div class="features-title">Качественно</div>
-                    <p>В СТО на оболони работают професионалы своего дела, мы гарантируем качественное выполнение технических работ.</p>
-                </div>
-                <div class="features-item">
-                    <div class="features-title">Доступно</div>
-                    <p>Ваш автомобиль прослужит вам еще долго без сбоев и неполадок.</p>
-                </div>
+            <section class="extra-content">
+                    {!! $page->extra !!}
             </section>
+            <div style="clear:both"></div>
         </div>
 
         <div class="index-content clearfix">

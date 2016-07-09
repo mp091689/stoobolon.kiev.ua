@@ -29,6 +29,10 @@ body {
     text-shadow: 1px 1px 2px black, 1px 1px 10px black;
 }
 
+.container .extra-content{
+    margin-bottom: 48px;
+}
+
 .clearfix:after {
   content: "";
   display: table;
@@ -140,9 +144,6 @@ body {
 
   width: 18px;
   height: 18px;
-
-  background: transparent url("../img/spritesheet.png") no-repeat;
-  background-position: 0 -212px;
 }
 
 .login:hover:before {
@@ -161,49 +162,6 @@ body {
     float: left;
 }
 
-.features-row {
-  margin-bottom: 80px;
-}
-
-.features-item {
-  float: left;
-
-  width: 300px;
-  margin-right: 20px;
-
-  text-align: center;
-}
-
-.features-item:last-child {
-   margin-right: 0;
-}
-
-.features-title {
-  position: relative;
-
-  padding-bottom: 50px;
-  margin-bottom: 30px;
-
-  font-size: 30px;
-  line-height: 42px;
-}
-
-.features-item p {
-  margin: 10px;
-}
-
-.features-title:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  display: block;
-  width: 20px;
-  height: 20px;
-  margin-left: -10px;
-  background: url(../img/features-icon.png) 100% 100% no-repeat;
-  background-size: cover;
-}
 .content {
 	margin-bottom: 200px;
 }

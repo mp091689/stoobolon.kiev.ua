@@ -3,6 +3,7 @@
 @section('script')
     <script>
         var editor = CKEDITOR.replace( 'body' );
+        var editor = CKEDITOR.replace( 'extra' );
     </script>
 @endsection
 
@@ -55,6 +56,14 @@
                                     <span class="help-block">Алиас должен состоять только из маленьких букв латинского алфавита. Вы можете оставить поле пустым, что бы алиас сгенерировался автоматически.</span>
                                 </div>
                             </div>
+                            @if ( Request::is('admin/page/1/edit') )
+                                <div class="form-group {{ $errors->has('extra') ? 'has-error' : '' }}">
+                                    <label for="extra" class="col-sm-2 control-label">Дополнительное поле</label>
+                                    <div class="col-sm-10">
+                                        <textarea name="extra" id="extra" class="form-control" rows="10">{{ Request::old('extra') ? Request::old('extra') : $page->extra }}</textarea>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="form-group {{ $errors->has('body') ? 'has-error' : '' }}">
                                 <label for="body" class="col-sm-2 control-label">Содержание</label>
                                 <div class="col-sm-10">

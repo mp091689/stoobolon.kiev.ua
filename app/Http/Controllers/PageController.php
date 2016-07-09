@@ -17,6 +17,7 @@ class PageController extends Controller
         $page = Page::where('alias',$alias)->firstOrFail();
 
         if ($alias == 'public') {
+            $page->extra = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/resources/views/includes/publicextracontent.php');
             return view('pages.public', [
                 'menus' => $menus,
                 'page' => $page,
@@ -72,6 +73,9 @@ class PageController extends Controller
 
     public function getEdit($id) {
         $page = Page::find($id);
+        if ( $id == 1 ) {
+            $page->extra = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/resources/views/includes/publicextracontent.php');
+        }
         if (!$page) {
             return redirect()->route('admin.get.pages')->with(['fail' => 'Страница не найдена']);
         }
@@ -111,6 +115,9 @@ class PageController extends Controller
         $page = Page::find($request['id']);
         if (!$page) {
             return redirect()->route('admin.get.pages')->with(['fail' => 'Страница не найдена']);
+        }
+        if ($request['id'] == 1) {
+            file_put_contents($_SERVER['DOCUMENT_ROOT'].'/resources/views/includes/publicextracontent.php',$request['extra']);
         }
         $page->title = $request['title'];
         $page->alias = $request['alias'];
